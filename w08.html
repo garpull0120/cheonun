@@ -1,0 +1,67 @@
+<!-- 천운에어컨 | 08 회사 소개 페이지: 대표 편지 전문 | '회사 소개' 페이지 맨 위 코드 위젯 (그 아래에 06 문의 안내)
+     바꿀 곳: [대표사진주소] (대표 사진 공개 안 하면 <figure> 줄 통째로 지우기) -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400..900&display=swap');
+/* 공통 색 (바꾸면 이 위젯 전체 색이 바뀜) */
+.cw-w08 .cw{--frame:#15182b;--ink:#1d2033;--muted:#6a6e84;--paper:#fbfbff;--line:#e3e5f2;--cline:#e6e8f4;--green:#d9dbf8;--green-l:#f3f5fc;--green-d:#6870ba;--green-t:#dce2f8;--dark:#23274a;--grad:linear-gradient(to bottom right,#dfedfc 0%,#dfedfc 20%,#ede4fb 60%,#ede4fb 100%);--grad-l:linear-gradient(to bottom right,#ebf3fd 0%,#ebf3fd 20%,#f2ecfc 60%,#f2ecfc 100%);font-family:'Noto Sans KR','Malgun Gothic','Apple SD Gothic Neo',sans-serif;font-weight:500;font-size:16px;letter-spacing:-.045em;line-height:1.6;color:var(--ink);background:var(--frame);padding:0 12px;word-break:keep-all;box-sizing:border-box}
+:where(.cw-w08 .cw) *,:where(.cw-w08 .cw) *::before,:where(.cw-w08 .cw) *::after{box-sizing:inherit;margin:0;padding:0}
+.cw-w08 .cw a{color:inherit;text-decoration:none}
+.cw-w08 .cw-in{background:var(--paper);padding:45px 42px 48px}
+.cw-w08 .cw-wrap{max-width:1320px;margin:0 auto}
+.cw-w08 .cw .cw-pill{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:48px;border:0;border-radius:40px;padding:14px 24px;background:#fff;color:#261c33;font:inherit;font-weight:700;font-size:14px;cursor:pointer;transition:transform .2s,background .2s}
+.cw-w08 .cw .cw-pill--green{background:var(--grad)}
+.cw-w08 .cw .cw-pill--dark{background:var(--dark);color:#fff}
+@media (hover:hover){.cw-w08 .cw .cw-pill:hover{transform:translateY(-2px);background:#d4ddf3;color:#261c33}}
+.cw-w08 .cw-label{font-size:14px;color:#646b7d;margin-bottom:17px}
+.cw-w08 .cw-head{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:22px}
+.cw-w08 .cw-head h2{font-size:31px;font-weight:800;letter-spacing:-.07em;line-height:1.3}
+.cw-w08 .cw-tag{display:inline-block;vertical-align:middle;margin-left:12px;border:1px solid #ced7eb;border-radius:20px;padding:5px 11px;color:var(--green-d);font-size:12px;font-weight:500;letter-spacing:-.03em}
+.cw-w08 .cw-link{font-size:14px;border-bottom:1px solid #b3b9c8;padding-bottom:4px;white-space:nowrap}
+.cw-w08 .cw-body{font-size:15px;line-height:1.85;color:var(--muted)}
+@media (max-width:900px){.cw-w08 .cw{padding:0 8px}.cw-w08 .cw-in{padding:32px 25px}}
+@media (max-width:560px){.cw-w08 .cw-in{padding:28px 20px}.cw-w08 .cw-head h2{font-size:25px}.cw-w08 .cw-tag{display:none}.cw-w08 .cw-link{font-size:12px}}
+@media (prefers-reduced-motion:reduce){.cw-w08 .cw *{transition:none!important}}
+.cw-w08 .cw{padding-top:12px}
+.cw-w08 .cw-in--top{border-radius:28px 28px 0 0}
+.cw-w08 .cw-about{display:grid;grid-template-columns:.8fr 1.4fr;gap:56px;padding-bottom:40px}
+.cw-w08 .cw-about__side{position:sticky;top:110px;align-self:start}
+.cw-w08 .cw-about h2{font-size:clamp(32px,3.6vw,46px);line-height:1.22;letter-spacing:-.075em;font-weight:800}
+.cw-w08 .cw-about h2 em{display:block;font-style:normal;font-size:15px;letter-spacing:.1em;color:var(--green-d);margin-top:14px}
+.cw-w08 .cw-about figure{margin-top:28px;border-radius:18px;overflow:hidden;max-width:320px;background:#dde2ed}
+.cw-w08 .cw-about figure img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover}
+.cw-w08 .cw-about__body p{font-size:17px;line-height:1.95;color:#3e4454;margin-bottom:1.4em}
+.cw-w08 .cw-about__body p:first-child{font-size:19px;font-weight:700;color:var(--ink)}
+.cw-w08 .cw-about__body p.cw-about__wish{font-family:inherit;font-size:19px;font-weight:800;letter-spacing:-.05em;line-height:1.7;color:var(--green-d);margin:6px 0 0}
+.cw-w08 .cw-about__sign{display:inline-block;margin-top:10px;padding:12px 22px;border-radius:40px;background:var(--grad-l);font-weight:700;font-size:15px}
+@media (max-width:900px){.cw-w08 .cw{padding-top:8px}.cw-w08 .cw-about{grid-template-columns:1fr;gap:28px}.cw-w08 .cw-about__side{position:static}}
+@media (max-width:560px){.cw-w08 .cw-about__body p{font-size:16px;line-height:1.9}.cw-w08 .cw-about__body p:first-child{font-size:17px}}
+</style>
+<div class="cw-w08">
+
+<section class="cw" aria-labelledby="cwFullTitle">
+  <div class="cw-in cw-in--top"><div class="cw-wrap">
+    <div class="cw-about">
+      <div class="cw-about__side">
+        <p class="cw-label">대표 인사말</p>
+        <h2 id="cwFullTitle">깨끗한 공기만큼은<br>운에 맡기지<br>않겠습니다.<em>天運 · 천운에어컨</em></h2>
+        <figure><img src="[대표사진주소]" alt="천운에어컨 대표"></figure>
+      </div>
+      <div class="cw-about__body">
+        <p>안녕하세요, 사장님. 천운에어컨 대표입니다.</p>
+        <p>에어컨 청소를 하다 보면 현장에서 자주 듣는 말이 있습니다. “손님이 들어오자마자 냄새 난다고 하더라고요.” “아이들이 에어컨 바람 맞으면 기침한다고 학부모님 전화가 왔어요.” “대기실에서 쿰쿰한 냄새가 나는데, 어디서 나는지 모르겠어요.”</p>
+        <p>그 말씀을 하시는 사장님들 표정은 대부분 비슷합니다. 손님께 불편을 드린 것 같아 미안하고, 어디서부터 손을 대야 할지 몰라 답답한 마음. 저는 그 마음을 압니다.</p>
+        <p>에어컨 안쪽은 여름 내내 생긴 물기 때문에 곰팡이가 자라기 쉬운 곳입니다. 필터만 닦아서는 송풍팬과 열교환기 깊숙한 곳까지 닿지 않습니다. 그리고 날이 추워져 난방을 켜는 순간, 그 냄새는 매장 전체로 퍼집니다. 손님은 대부분 그 불편함을 말하지 않습니다. 그냥 조용히, 다음에 오지 않을 뿐입니다.</p>
+        <p>그래서 저희는 에어컨을 반드시 완전히 분해해서 세척합니다. 세척 전과 후의 모습을 사진으로 꼭 보여드립니다. 오픈 전, 마감 후, 주말에도 작업합니다. 여러 대를 한 번에 맡기실 때는 현장 상황에 맞춰 부담을 덜어드리겠습니다.</p>
+        <p>‘천운(天運)’이라는 이름에는 하늘이 돕는다는 뜻이 담겨 있습니다. 하지만 저는 깨끗한 공기만큼은 운에 맡기지 않겠습니다. 손으로, 땀으로, 한 대 한 대 정성껏 닦아내겠습니다.</p>
+        <p>편하실 때 연락 주세요. 작은 문의 하나도 성심껏 답해드리겠습니다.</p>
+        <p class="cw-about__wish">저희와 닿는 모든 인연에 작은 행운이 깃들기를 바랍니다.</p>
+        <span class="cw-about__sign">천운에어컨 대표 드림</span>
+      </div>
+    </div>
+  </div></div>
+</section>
+</div>
+
+<script>
+(function(){var f=document.querySelector('.cw-about figure img');if(f&&(f.getAttribute('src')||'').indexOf('[')===0)f.closest('figure').style.display='none';})();
+</script>

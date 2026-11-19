@@ -1,0 +1,228 @@
+<!-- 천운에어컨 | 13 매트리스·소파 청소: 매트리스 목록(영상 배경) + 진행 순서 | '매트리스·소파 청소' 페이지 맨 위, 그 아래에 12 견적문의폼
+     바꿀 곳: [매트리스영상주소] [매트리스모바일영상주소] [매트리스포스터주소], 카드의 가격(현재 다른 업체 시세 기준 임시값, 실제 가격으로 교체. 글자를 [가격]원부터 로 두면 '상담 후 안내'로 표시) -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400..900&display=swap');
+/* 공통 색 (바꾸면 이 위젯 전체 색이 바뀜) */
+.cw-w13 .cw{--frame:#15182b;--ink:#1d2033;--muted:#6a6e84;--paper:#fbfbff;--line:#e3e5f2;--cline:#e6e8f4;--green:#d9dbf8;--green-l:#f3f5fc;--green-d:#6870ba;--green-t:#dce2f8;--dark:#23274a;--grad:linear-gradient(to bottom right,#dfedfc 0%,#dfedfc 20%,#ede4fb 60%,#ede4fb 100%);--grad-l:linear-gradient(to bottom right,#ebf3fd 0%,#ebf3fd 20%,#f2ecfc 60%,#f2ecfc 100%);font-family:'Noto Sans KR','Malgun Gothic','Apple SD Gothic Neo',sans-serif;font-weight:500;font-size:16px;letter-spacing:-.045em;line-height:1.6;color:var(--ink);background:var(--frame);padding:0 12px;word-break:keep-all;box-sizing:border-box}
+:where(.cw-w13 .cw) *,:where(.cw-w13 .cw) *::before,:where(.cw-w13 .cw) *::after{box-sizing:inherit;margin:0;padding:0}
+.cw-w13 .cw a{color:inherit;text-decoration:none}
+.cw-w13 .cw-in{background:var(--paper);padding:45px 42px 48px}
+.cw-w13 .cw-wrap{max-width:1320px;margin:0 auto}
+.cw-w13 .cw .cw-pill{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:48px;border:0;border-radius:40px;padding:14px 24px;background:#fff;color:#261c33;font:inherit;font-weight:700;font-size:14px;cursor:pointer;transition:transform .2s,background .2s}
+.cw-w13 .cw .cw-pill--green{background:var(--grad)}
+.cw-w13 .cw .cw-pill--dark{background:var(--dark);color:#fff}
+@media (hover:hover){.cw-w13 .cw .cw-pill:hover{transform:translateY(-2px);background:#d4ddf3;color:#261c33}}
+.cw-w13 .cw-label{font-size:14px;color:#646b7d;margin-bottom:17px}
+.cw-w13 .cw-head{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:22px}
+.cw-w13 .cw-head h2{font-size:31px;font-weight:800;letter-spacing:-.07em;line-height:1.3}
+.cw-w13 .cw-tag{display:inline-block;vertical-align:middle;margin-left:12px;border:1px solid #ced7eb;border-radius:20px;padding:5px 11px;color:var(--green-d);font-size:12px;font-weight:500;letter-spacing:-.03em}
+.cw-w13 .cw-link{font-size:14px;border-bottom:1px solid #b3b9c8;padding-bottom:4px;white-space:nowrap}
+.cw-w13 .cw-body{font-size:15px;line-height:1.85;color:var(--muted)}
+@media (max-width:900px){.cw-w13 .cw{padding:0 8px}.cw-w13 .cw-in{padding:32px 25px}}
+@media (max-width:560px){.cw-w13 .cw-in{padding:28px 20px}.cw-w13 .cw-head h2{font-size:25px}.cw-w13 .cw-tag{display:none}.cw-w13 .cw-link{font-size:12px}}
+@media (prefers-reduced-motion:reduce){.cw-w13 .cw *{transition:none!important}}
+.cw-w13 .cw{padding-top:12px}
+/* 영상 구간(맨 위): 높이는 min-height 숫자로 조절 (PC 420px / 모바일 300px) */
+.cw-w13 .cw-vl{position:relative;border-radius:28px 28px 0 0;overflow:hidden;color:#fff;background:#23274a;padding:64px 46px;min-height:420px;display:flex;align-items:center}
+.cw-w13 .cw-vl video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%}
+/* 영상 위 어둡게 깔리는 막: 숫자(.58 / .40 / .62)를 내리면 영상이 더 잘 보이고, 올리면 글씨가 더 또렷함 */
+.cw-w13 .cw-vl::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(21,24,43,.58),rgba(21,24,43,.40) 50%,rgba(21,24,43,.62))}
+.cw-w13 .cw-vl__in{position:relative;z-index:2;max-width:1320px;width:100%;margin:0 auto}
+/* 영상 아래 가격·안내 구간 */
+.cw-w13 .cw-bd{background:linear-gradient(180deg,#1f2344,#15182b);color:#fff;padding:44px 46px 56px}
+.cw-w13 .cw-bd__in{max-width:1320px;margin:0 auto}
+.cw-w13 .cw-vl__label{font-size:14px;letter-spacing:.1em;color:var(--green-t);margin-bottom:16px}
+.cw-w13 .cw-vl h2{font-size:clamp(34px,4.4vw,58px);line-height:1.18;letter-spacing:-.075em;font-weight:800;margin-bottom:16px}
+.cw-w13 .cw-vl__sub{font-size:17px;line-height:1.8;color:#e7eaf5;margin-bottom:0;max-width:620px}
+.cw-w13 .cw-vl__toggle{position:absolute;z-index:3;top:22px;right:22px;width:44px;height:44px;border-radius:50%;border:1px solid #ffffff70;background:#15182b66;color:#fff;cursor:pointer;display:none;align-items:center;justify-content:center}
+.cw-w13 .cw-vl__toggle.is-show{display:flex}
+.cw-w13 .cw-vl__toggle svg{width:15px;height:15px;fill:currentColor}
+.cw-w13 .cw-vl__toggle .i-play{display:none}
+.cw-w13 .cw-vl__toggle.is-paused .i-play{display:block}
+.cw-w13 .cw-vl__toggle.is-paused .i-pause{display:none}
+.cw-w13 .cw-grp{font-size:14px;font-weight:700;letter-spacing:.04em;color:var(--green-t);margin:0 0 14px}
+.cw-w13 .cw-grp--2{margin-top:30px}
+.cw-w13 .cw-lst{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.cw-w13 .cw-it{background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.34);border-radius:20px;padding:24px 22px 22px;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.cw-w13 .cw-it h3{font-size:21px;font-weight:800;letter-spacing:-.06em;line-height:1.3}
+.cw-w13 .cw-it small{display:block;margin-top:4px;font-size:13px;color:#dfe3f3;letter-spacing:-.03em}
+.cw-w13 .cw-it b{display:block;margin-top:20px;font-size:20px;font-weight:800;letter-spacing:-.05em}
+.cw-w13 .cw-it--note{background:rgba(255,255,255,.07);border-style:dashed}
+.cw-w13 .cw-it--note h3{font-size:17px}
+.cw-w13 .cw-pp{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-top:12px;padding-top:10px;border-top:1px solid rgba(255,255,255,.22)}
+.cw-w13 .cw-pp:first-of-type{margin-top:16px}
+.cw-w13 .cw-pp span{font-size:13px;font-weight:700;color:var(--green-t)}
+.cw-w13 .cw-pp b{margin:0;font-size:18px}
+.cw-w13 .cw-mode{font-size:13px;line-height:1.7;color:#dfe3f3;margin:-4px 0 10px}
+.cw-w13 .cw-mode strong{color:#fff}
+.cw-w13 .cw-eq{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:0 0 16px}
+.cw-w13 .cw-eqc h3{font-size:19px}
+.cw-w13 .cw-eqc ul{list-style:none;margin:14px 0 0;padding:0}
+.cw-w13 .cw-eqc li{position:relative;padding-left:14px;font-size:14px;line-height:1.7;color:#e7eaf5}
+.cw-w13 .cw-eqc li+li{margin-top:6px}
+.cw-w13 .cw-eqc li::before{content:"";position:absolute;left:0;top:.72em;width:5px;height:5px;border-radius:50%;background:var(--green-t)}
+.cw-w13 .cw-nt{margin:0 0 16px;padding:16px 20px;border-radius:16px;background:rgba(255,255,255,.07);border:1px dashed rgba(255,255,255,.34)}
+.cw-w13 .cw-nt--solo{margin:14px 0 0}
+.cw-w13 .cw-nt h4{font-size:15px;font-weight:800;letter-spacing:-.04em;margin:0 0 8px;color:#fff}
+.cw-w13 .cw-nt ul{list-style:none;margin:0;padding:0}
+.cw-w13 .cw-nt li{position:relative;padding-left:14px;font-size:13.5px;line-height:1.7;color:#e7eaf5}
+.cw-w13 .cw-nt li+li{margin-top:4px}
+.cw-w13 .cw-nt li::before{content:"";position:absolute;left:0;top:.72em;width:5px;height:5px;border-radius:50%;background:var(--green-t)}
+.cw-w13 .cw-deal{display:inline-block;margin:0 0 16px;padding:8px 16px;border-radius:30px;background:var(--grad);color:#261c33;font-size:14px;font-weight:700}
+.cw-w13 .cw-pp--both{margin-top:12px;padding:9px 10px;border:0;border-radius:12px;background:rgba(255,255,255,.18)}
+.cw-w13 .cw-pp--both span{color:#fff}
+.cw-w13 .cw-vl__btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:34px}
+.cw-w13 .cw-vl__fine{margin-top:16px;font-size:12.5px;color:#cdd2e8;line-height:1.7}
+.cw-w13 .cw-in--mid{padding-top:48px}
+.cw-w13 .cw-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:6px}
+.cw-w13 .cw-step{border-radius:20px;padding:26px 24px 24px;min-height:190px}
+.cw-w13 .cw-step:nth-child(1){background:linear-gradient(to bottom right,#e3effd 0%,#e3effd 20%,#ece6fb 60%,#ece6fb 100%)}
+.cw-w13 .cw-step:nth-child(2){background:linear-gradient(to bottom right,#e4ecfc 0%,#e4ecfc 20%,#ede6fb 60%,#ede6fb 100%)}
+.cw-w13 .cw-step:nth-child(3){background:linear-gradient(to bottom right,#e6e9fb 0%,#e6e9fb 20%,#efe5fa 60%,#efe5fa 100%)}
+.cw-w13 .cw-step:nth-child(4){background:linear-gradient(to bottom right,#e8e8fa 0%,#e8e8fa 20%,#f1e5f8 60%,#f1e5f8 100%)}
+.cw-w13 .cw-step em{display:block;font-style:normal;font-size:13px;font-weight:800;letter-spacing:.08em;color:var(--green-d);margin-bottom:14px}
+.cw-w13 .cw-step h3{font-size:20px;font-weight:800;letter-spacing:-.06em;line-height:1.35;margin-bottom:10px}
+.cw-w13 .cw-step p{font-size:14.5px;line-height:1.75;color:var(--muted)}
+@media (max-width:1000px){.cw-w13 .cw-lst,.cw-w13 .cw-steps{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:700px){.cw-w13 .cw-eq{grid-template-columns:1fr;gap:10px}}
+@media (max-width:900px){.cw-w13 .cw{padding-top:8px}.cw-w13 .cw-vl{padding:48px 25px;min-height:360px}.cw-w13 .cw-bd{padding:36px 25px 44px}}
+@media (max-width:560px){
+  .cw-w13 .cw-vl{padding:40px 18px;min-height:300px}
+  .cw-w13 .cw-bd{padding:30px 18px 40px}
+  .cw-w13 .cw-vl__btns--hero{display:none}
+  .cw-w13 .cw-vl__sub{font-size:15.5px}
+  .cw-w13 .cw-lst{gap:10px}
+  .cw-w13 .cw-it{padding:18px 16px}
+  .cw-w13 .cw-it h3{font-size:18px}
+  .cw-w13 .cw-it b{font-size:17px;margin-top:14px}
+  .cw-w13 .cw-pp b{font-size:15.5px;margin-top:0}
+  .cw-w13 .cw-steps{grid-template-columns:1fr}
+  .cw-w13 .cw-step{min-height:0}
+  .cw-w13 .cw-vl__btns .cw-pill{flex:1 1 100%}
+  .cw-w13 .cw-vl__toggle{top:14px;right:14px}
+}
+</style>
+<div class="cw-w13">
+
+<section class="cw" aria-labelledby="cwMatTitle">
+  <div class="cw-vl">
+    <!-- 영상: data-src(PC) / data-src-mobile(모바일) 주소만 바꾸면 교체됨 -->
+    <video id="cwMatVideo" muted loop playsinline preload="none" poster="https://cdn.jsdelivr.net/gh/garpull0120/cheonun@7f6e5ccea7bcf5a5580ac49e0f22fb6c3fa2f2e0/mattress_poster.jpg" data-src="https://cdn.jsdelivr.net/gh/garpull0120/cheonun@7f6e5ccea7bcf5a5580ac49e0f22fb6c3fa2f2e0/mattress.mp4" data-src-mobile="https://cdn.jsdelivr.net/gh/garpull0120/cheonun@7f6e5ccea7bcf5a5580ac49e0f22fb6c3fa2f2e0/mattress_mobile.mp4" aria-hidden="true"></video>
+    <button type="button" class="cw-vl__toggle" id="cwMatToggle" aria-label="배경 영상 일시정지">
+      <svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="2" width="3.5" height="12"/><rect x="9.5" y="2" width="3.5" height="12"/></svg>
+      <svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2l10 6-10 6z"/></svg>
+    </button>
+    <div class="cw-vl__in">
+      <p class="cw-vl__label">매트리스 · 소파 청소</p>
+      <h2 id="cwMatTitle">매트리스 목록</h2>
+      <p class="cw-vl__sub">침대는 사이즈별로, 소파는 좌석 수별로 안내해 드립니다.<br>구석과 옆면까지, 한 면도 놓치지 않고 닦습니다.<br><strong>모든 가격은 부가세 별도입니다.</strong></p>
+      <div class="cw-vl__btns cw-vl__btns--hero">
+        <a class="cw-pill cw-pill--green" href="#quote-form">무료 견적 문의</a>
+        <a class="cw-pill" href="https://open.kakao.com/o/sjdwBrRi" target="_blank" rel="noopener">카카오톡 상담</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="cw-bd"><div class="cw-bd__in">
+      <p class="cw-grp">매트리스</p>
+      <div class="cw-eq">
+        <div class="cw-it cw-eqc">
+          <h3>건식 · 컬비 청소기</h3>
+          <ul>
+            <li>매트리스 전용 부속으로 표면과 가장자리, 틈까지 꼼꼼히 흡입합니다.</li>
+            <li>소파와 패브릭은 부속을 바꿔가며 부위별로 작업합니다.</li>
+            <li>청소업계에서 많이 쓰는 전문 장비입니다.</li>
+          </ul>
+        </div>
+        <div class="cw-it cw-eqc">
+          <h3>습식 · 카처 퍼지</h3>
+          <ul>
+            <li>세제를 분사해 오염을 불린 뒤, 물과 함께 흡입해 빼냅니다.</li>
+            <li>땀, 음료, 생활 오염으로 생긴 얼룩을 집중해서 세척합니다.</li>
+            <li>작업 후에는 남은 수분을 최대한 흡입해 줄입니다.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="cw-nt">
+        <h4>습식 작업은 이렇게 진행합니다</h4>
+        <ul>
+          <li>습식은 사람이 눕는 윗면을 기준으로 진행합니다.</li>
+          <li>측면은 내부 스프링에 물이 닿을 수 있어 기본 작업에 포함하지 않습니다. 신경 쓰이는 부분이 있으시면 미리 말씀해 주세요. 상태를 확인하고 가능한 방법을 안내해 드립니다.</li>
+          <li>뒷면은 건조가 어려워 작업하지 않습니다.</li>
+        </ul>
+      </div>
+      <p class="cw-deal"><strong>건식+습식</strong> 동시 진행 시 <strong>20,000원 할인</strong>됩니다.</p>
+      <div class="cw-lst">
+        <div class="cw-it"><h3>싱글</h3><small>1인용 (S)</small><div class="cw-pp"><span>건식</span><b class="cw-price">50,000원부터</b></div><div class="cw-pp"><span>습식</span><b class="cw-price">80,000원부터</b></div><div class="cw-pp cw-pp--both"><span>건식+습식 (−2만)</span><b class="cw-price">110,000원부터</b></div></div>
+        <div class="cw-it"><h3>슈퍼싱글</h3><small>1~2인용 (SS)</small><div class="cw-pp"><span>건식</span><b class="cw-price">60,000원부터</b></div><div class="cw-pp"><span>습식</span><b class="cw-price">90,000원부터</b></div><div class="cw-pp cw-pp--both"><span>건식+습식 (−2만)</span><b class="cw-price">130,000원부터</b></div></div>
+        <div class="cw-it"><h3>퀸</h3><small>2인용 (Q)</small><div class="cw-pp"><span>건식</span><b class="cw-price">70,000원부터</b></div><div class="cw-pp"><span>습식</span><b class="cw-price">100,000원부터</b></div><div class="cw-pp cw-pp--both"><span>건식+습식 (−2만)</span><b class="cw-price">150,000원부터</b></div></div>
+        <div class="cw-it"><h3>킹</h3><small>2인 이상 (K)</small><div class="cw-pp"><span>건식</span><b class="cw-price">80,000원부터</b></div><div class="cw-pp"><span>습식</span><b class="cw-price">110,000원부터</b></div><div class="cw-pp cw-pp--both"><span>건식+습식 (−2만)</span><b class="cw-price">170,000원부터</b></div></div>
+      </div>
+
+      <p class="cw-grp cw-grp--2">소파 <span style="font-weight:500;opacity:.85">· ㄱ자·카우치형은 20,000원 추가</span></p>
+      <div class="cw-lst">
+        <div class="cw-it"><h3>소파 1~2인용</h3><small>좌석 수 기준</small><b class="cw-price">70,000원부터</b></div>
+        <div class="cw-it"><h3>소파 3인용</h3><small>좌석 수 기준</small><b class="cw-price">100,000원부터</b></div>
+        <div class="cw-it"><h3>소파 4인용 이상</h3><small>일자형 기준</small><b class="cw-price">120,000원부터</b></div>
+        <div class="cw-it cw-it--note"><h3>그 외 침구·패브릭</h3><small>사진을 보내주시면 안내해 드립니다</small><b>상담 후 안내</b></div>
+      </div>
+
+      <p class="cw-grp cw-grp--2">부분 오염제거 <span style="font-weight:500;opacity:.85">· 전체 청소 없이 얼룩 부위만 (매트리스·소파 공통, 방문 작업)</span></p>
+      <div class="cw-lst">
+        <div class="cw-it"><h3>작은 얼룩</h3><small>손바닥 크기 이내</small><b class="cw-price">50,000원부터</b></div>
+        <div class="cw-it"><h3>중간 얼룩</h3><small>A4 용지 크기 안팎</small><b class="cw-price">70,000원부터</b></div>
+        <div class="cw-it"><h3>넓은 얼룩</h3><small>방석 크기 이상</small><b class="cw-price">90,000원부터</b></div>
+        <div class="cw-it cw-it--note"><h3>얼룩이 여러 곳이면</h3><small>면적을 합산해 안내하며, 전체 청소가 더 나을 수 있습니다</small><b>사진으로 상담</b></div>
+      </div>
+      <div class="cw-nt cw-nt--solo">
+        <ul>
+          <li>부분 오염제거 가격은 얼룩 개수가 아니라 오염 면적을 기준으로 안내합니다.</li>
+          <li>매트리스 측면 작업을 원하시는 경우 별도 금액이 있으며, 작업 전에 먼저 안내해 드립니다.</li>
+          <li>오래된 얼룩이나 섬유 깊이 스며든 얼룩은 완전히 지워지지 않을 수 있습니다. 작업 전에 상태를 확인해 가능한 범위를 먼저 안내해 드립니다.</li>
+        </ul>
+      </div>
+
+      <div class="cw-vl__btns">
+        <a class="cw-pill cw-pill--green" href="#quote-form">무료 견적 문의</a>
+        <a class="cw-pill" href="https://open.kakao.com/o/sjdwBrRi" target="_blank" rel="noopener">카카오톡 상담</a>
+      </div>
+      <p class="cw-vl__fine">부가세 별도, 출장비 없음(현장 도착 후 작업이 어려운 경우 교통비에 해당하는 출장비 30,000원). 건식·습식 가격은 사이즈 기준이고, 건식+습식을 동시에 진행하면 합계에서 20,000원이 할인됩니다. 소파는 ㄱ자·카우치형이면 20,000원이 추가됩니다. 가격은 제품 상태와 오염 정도에 따라 달라질 수 있어, 사진을 보내주시면 정확히 안내해 드립니다. 오염의 종류와 경과 시간, 소재에 따라 청소 후에도 얼룩이나 냄새가 일부 남을 수 있습니다.</p>
+    </div>
+  </div>
+  <div class="cw-in cw-in--mid"><div class="cw-wrap">
+    <p class="cw-label">청소 진행 순서</p>
+    <div class="cw-head"><h2>이렇게 진행합니다</h2></div>
+    <div class="cw-steps">
+      <div class="cw-step"><em>STEP 1</em><h3>상담·견적</h3><p>제품 종류와 사이즈, 오염 상태를 사진으로 확인하고 견적을 안내해 드립니다.</p></div>
+      <div class="cw-step"><em>STEP 2</em><h3>현장 점검</h3><p>작업 전에 얼룩과 오염 위치, 소재를 확인하고 작업 방법을 정합니다.</p></div>
+      <div class="cw-step"><em>STEP 3</em><h3>꼼꼼한 세척</h3><p>윗면과 옆면, 모서리까지 구역을 나눠 빠짐없이 닦아냅니다.</p></div>
+      <div class="cw-step"><em>STEP 4</em><h3>마무리·확인</h3><p>마무리 상태를 함께 확인하고, 필요한 부분이 있으면 바로 말씀해 주세요.</p></div>
+    </div>
+  </div></div>
+</section>
+</div>
+
+<script>
+(function(){
+  var v=document.getElementById('cwMatVideo'),btn=document.getElementById('cwMatToggle');
+  /* 가격을 아직 안 채운 칸은 '상담 후 안내'로 보이게 */
+  var ps=document.querySelectorAll('.cw-w13 .cw-price');
+  for(var i=0;i<ps.length;i++){if(ps[i].textContent.indexOf('[')>-1)ps[i].textContent='상담 후 안내';}
+  if(!v)return;
+  function ok(u){return u&&u.indexOf('[')!==0;}
+  var src=v.getAttribute('data-src'),msrc=v.getAttribute('data-src-mobile');
+  if(window.innerWidth<860&&ok(msrc))src=msrc;
+  var saveData=navigator.connection&&navigator.connection.saveData;
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!ok(v.getAttribute('poster')))v.removeAttribute('poster');
+  if(!ok(src)||saveData)return;
+  function sync(){btn.classList.toggle('is-paused',v.paused);btn.setAttribute('aria-label',v.paused?'배경 영상 재생':'배경 영상 일시정지');}
+  v.src=src;v.preload='auto';
+  btn.classList.add('is-show');
+  v.addEventListener('play',sync);v.addEventListener('pause',sync);
+  btn.addEventListener('click',function(){if(v.paused){v.play().catch(function(){});}else{v.pause();}});
+  /* 기기에서 '애니메이션 줄이기'를 켠 방문자는 멈춘 상태로 시작(버튼으로 재생 가능) */
+  if(!reduce){v.play().catch(function(){});}
+  sync();
+})();
+</script>

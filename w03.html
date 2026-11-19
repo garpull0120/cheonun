@@ -1,0 +1,146 @@
+<!-- 천운에어컨 | 03 시공 전·후 갤러리 (드래그 비교 슬라이더) | 코드 위젯에 통째로 붙여넣기
+     바꿀 곳: [전후1~6_전사진] [전후1~6_후사진] → 이미지/시공사례/ 폴더 12장(1_패널 ~ 6_천장형패널)을 아임웹에 올린 주소, [에어컨청소페이지주소]
+     사진 카드 추가: <article class="cw-card"> ... </article> 한 덩어리를 복사해서 붙이고 사진 주소·제목만 바꾸기
+     사진은 같은 각도·같은 크기(세로 4:5)로 맞춘 전/후 한 쌍이어야 자연스러움 -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400..900&display=swap');
+/* 공통 색 (바꾸면 이 위젯 전체 색이 바뀜) */
+.cw-w03 .cw{--frame:#15182b;--ink:#1d2033;--muted:#6a6e84;--paper:#fbfbff;--line:#e3e5f2;--cline:#e6e8f4;--green:#d9dbf8;--green-l:#f3f5fc;--green-d:#6870ba;--green-t:#dce2f8;--dark:#23274a;--grad:linear-gradient(to bottom right,#dfedfc 0%,#dfedfc 20%,#ede4fb 60%,#ede4fb 100%);--grad-l:linear-gradient(to bottom right,#ebf3fd 0%,#ebf3fd 20%,#f2ecfc 60%,#f2ecfc 100%);font-family:'Noto Sans KR','Malgun Gothic','Apple SD Gothic Neo',sans-serif;font-weight:500;font-size:16px;letter-spacing:-.045em;line-height:1.6;color:var(--ink);background:var(--frame);padding:0 12px;word-break:keep-all;box-sizing:border-box}
+:where(.cw-w03 .cw) *,:where(.cw-w03 .cw) *::before,:where(.cw-w03 .cw) *::after{box-sizing:inherit;margin:0;padding:0}
+.cw-w03 .cw a{color:inherit;text-decoration:none}
+.cw-w03 .cw-in{background:var(--paper);padding:45px 42px 48px}
+.cw-w03 .cw-wrap{max-width:1320px;margin:0 auto}
+.cw-w03 .cw .cw-pill{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:48px;border:0;border-radius:40px;padding:14px 24px;background:#fff;color:#261c33;font:inherit;font-weight:700;font-size:14px;cursor:pointer;transition:transform .2s,background .2s}
+.cw-w03 .cw .cw-pill--green{background:var(--grad)}
+.cw-w03 .cw .cw-pill--dark{background:var(--dark);color:#fff}
+@media (hover:hover){.cw-w03 .cw .cw-pill:hover{transform:translateY(-2px);background:#d4ddf3;color:#261c33}}
+.cw-w03 .cw-label{font-size:14px;color:#646b7d;margin-bottom:17px}
+.cw-w03 .cw-head{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:22px}
+.cw-w03 .cw-head h2{font-size:31px;font-weight:800;letter-spacing:-.07em;line-height:1.3}
+.cw-w03 .cw-tag{display:inline-block;vertical-align:middle;margin-left:12px;border:1px solid #ced7eb;border-radius:20px;padding:5px 11px;color:var(--green-d);font-size:12px;font-weight:500;letter-spacing:-.03em}
+.cw-w03 .cw-link{font-size:14px;border-bottom:1px solid #b3b9c8;padding-bottom:4px;white-space:nowrap}
+.cw-w03 .cw-body{font-size:15px;line-height:1.85;color:var(--muted)}
+@media (max-width:900px){.cw-w03 .cw{padding:0 8px}.cw-w03 .cw-in{padding:32px 25px}}
+@media (max-width:560px){.cw-w03 .cw-in{padding:28px 20px}.cw-w03 .cw-head h2{font-size:25px}.cw-w03 .cw-tag{display:none}.cw-w03 .cw-link{font-size:12px}}
+@media (prefers-reduced-motion:reduce){.cw-w03 .cw *{transition:none!important}}
+.cw-w03 .cw-in{padding-top:34px}
+.cw-w03 .cw-lead{font-size:14px;color:#646b7d;margin:-10px 0 22px}
+.cw-w03 .cw-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.cw-w03 .cw-card{border:1px solid var(--cline);border-radius:18px;overflow:hidden;background:#fff;transition:transform .2s,box-shadow .2s}
+@media (hover:hover){.cw-w03 .cw-card:hover{transform:translateY(-5px);box-shadow:0 12px 28px #17244412}}
+.cw-w03 .cw-ba{position:relative;aspect-ratio:4/5;overflow:hidden;background:#dde2ed;user-select:none;touch-action:pan-y}
+.cw-w03 .cw-ba__img{position:absolute;inset:0;background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center;font-size:14px;color:#1a253f}
+.cw-w03 .cw-ba__img--before{background-color:#d2c8e0;justify-content:flex-start;padding-left:9%}
+.cw-w03 .cw-ba__img--after{background-color:#e4e7ee;justify-content:flex-end;padding-right:9%;clip-path:inset(0 0 0 50%)}
+.cw-w03 .cw-ba__tag{position:absolute;top:14px;padding:6px 11px;border-radius:20px;font-size:12px;background:#ffffffb0;color:var(--ink)}
+.cw-w03 .cw-ba__tag--b{left:14px}.cw-w03 .cw-ba__tag--a{right:14px}
+.cw-w03 .cw-ba__bar{position:absolute;top:0;bottom:0;left:50%;width:2px;margin-left:-1px;background:#fff;pointer-events:none}
+.cw-w03 .cw-ba__bar::after{content:"";position:absolute;top:50%;left:50%;width:40px;height:40px;margin:-20px 0 0 -20px;border-radius:50%;background:var(--grad);box-shadow:0 4px 14px #0003}
+.cw-w03 .cw-ba__bar::before{content:"\2039\00a0\00a0\203A";position:absolute;z-index:1;top:50%;left:50%;transform:translate(-50%,-52%);font-size:18px;font-weight:800;color:var(--ink);white-space:nowrap;line-height:1}
+.cw-w03 .cw-ba input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
+.cw-w03 .cw-card__body{padding:19px}
+.cw-w03 .cw-card__body h3{font-size:20px;font-weight:800;letter-spacing:-.06em;margin-bottom:6px}
+.cw-w03 .cw-card__body p{font-size:14px;line-height:1.7;color:#686f80}
+.cw-w03 .cw-card--cta{grid-column:1/-1;display:grid;grid-template-columns:auto 1fr auto;column-gap:36px;align-items:center;background:var(--grad-l);border-color:var(--green-l);padding:30px;position:relative;overflow:hidden}
+.cw-w03 .cw-card--cta::after{content:"";position:absolute;width:220px;height:220px;border:40px solid #c0ceed80;border-radius:50%;right:-90px;top:-90px}
+.cw-w03 .cw-card--cta h3{font-size:28px;font-weight:800;letter-spacing:-.07em;line-height:1.3}
+.cw-w03 .cw-card--cta .cw-label{grid-column:1/-1;margin-bottom:6px}
+.cw-w03 .cw-card--cta p:not(.cw-label){font-size:15px;line-height:1.75;color:#3e4454;position:relative;z-index:1}
+.cw-w03 .cw-card--cta .cw-pill{position:relative;z-index:1}
+
+@media (max-width:900px){.cw-w03 .cw-cards{grid-template-columns:1fr 1fr}.cw-w03 .cw-card--cta{grid-template-columns:1fr;row-gap:12px}.cw-w03 .cw-card--cta .cw-pill{justify-self:start}}
+@media (max-width:560px){.cw-w03 .cw-cards{grid-template-columns:1fr;gap:12px}.cw-w03 .cw-card__body{padding:14px}.cw-w03 .cw-card__body h3{font-size:18px}}
+</style>
+<div class="cw-w03">
+
+<section class="cw" aria-labelledby="cwBaTitle">
+  <div class="cw-in"><div class="cw-wrap">
+    <div class="cw-head">
+      <h2 id="cwBaTitle">말보다 사진으로 보여드립니다<span class="cw-tag">세척 전·후</span></h2>
+      <a class="cw-link" href="/cleaning">시공 사례 더 보기</a>
+    </div>
+    <p class="cw-lead">가운데 동그라미를 좌우로 움직여 세척 전과 후를 비교해 보세요.</p>
+
+    <div class="cw-cards">
+      <article class="cw-card">
+        <div class="cw-ba">
+          <div class="cw-ba__img cw-ba__img--before" style="background-image:url('https://cdn.jsdelivr.net/gh/garpull0120/cheonun@7f6e5ccea7bcf5a5580ac49e0f22fb6c3fa2f2e0/ba1_before.jpg')">세척 전 사진</div>
+          <div class="cw-ba__img cw-ba__img--after" style="background-image:url('https://cdn.jsdelivr.net/gh/garpull0120/cheonun@7f6e5ccea7bcf5a5580ac49e0f22fb6c3fa2f2e0/ba1_after.jpg')">세척 후 사진</div>
+          <span class="cw-ba__tag cw-ba__tag--b">BEFORE</span><span class="cw-ba__tag cw-ba__tag--a">AFTER</span>
+          <span class="cw-ba__bar"></span>
+          <input type="range" min="0" max="100" value="50" aria-label="스탠드 에어컨 흡입구 패널 세척 전후 비교">
+        </div>
+        <div class="cw-card__body"><h3>스탠드 에어컨 흡입구 패널</h3><p>털처럼 쌓인 먼지를 걷어내고 원래 색으로</p></div>
+      </article>
+      <article class="cw-card">
+        <div class="cw-ba">
+          <div class="cw-ba__img cw-ba__img--before" style="background-image:url('https://cdn.jsdelivr.net/gh/garpull0120/cheonun@7f6e5ccea7bcf5a5580ac49e0f22fb6c3fa2f2e0/ba3_before.jpg')">세척 전 사진</div>
+          <div class="cw-ba__img cw-ba__img--after" style="background-image:url('https://cdn.jsdelivr.net/gh/garpull0120/cheonun@7f6e5ccea7bcf5a5580ac49e0f22fb6c3fa2f2e0/ba3_after.jpg')">세척 후 사진</div>
+          <span class="cw-ba__tag cw-ba__tag--b">BEFORE</span><span class="cw-ba__tag cw-ba__tag--a">AFTER</span>
+          <span class="cw-ba__bar"></span>
+          <input type="range" min="0" max="100" value="50" aria-label="팬 하우징 세척 전후 비교">
+        </div>
+        <div class="cw-card__body"><h3>팬 하우징</h3><p>검게 번진 곰팡이를 걷어내고 하얗게</p></div>
+      </article>
+      <article class="cw-card">
+        <div class="cw-ba">
+          <div class="cw-ba__img cw-ba__img--before" style="background-image:url('https://cdn.jsdelivr.net/gh/garpull0120/cheonun@7f6e5ccea7bcf5a5580ac49e0f22fb6c3fa2f2e0/ba5_before.jpg')">세척 전 사진</div>
+          <div class="cw-ba__img cw-ba__img--after" style="background-image:url('https://cdn.jsdelivr.net/gh/garpull0120/cheonun@7f6e5ccea7bcf5a5580ac49e0f22fb6c3fa2f2e0/ba5_after.jpg')">세척 후 사진</div>
+          <span class="cw-ba__tag cw-ba__tag--b">BEFORE</span><span class="cw-ba__tag cw-ba__tag--a">AFTER</span>
+          <span class="cw-ba__bar"></span>
+          <input type="range" min="0" max="100" value="50" aria-label="송풍팬 세척 전후 비교">
+        </div>
+        <div class="cw-card__body"><h3>송풍팬</h3><p>날개마다 붙은 곰팡이 얼룩까지</p></div>
+      </article>
+      <article class="cw-card">
+        <div class="cw-ba">
+          <div class="cw-ba__img cw-ba__img--before" style="background-image:url('https://cdn.jsdelivr.net/gh/garpull0120/cheonun@7f6e5ccea7bcf5a5580ac49e0f22fb6c3fa2f2e0/ba2_before.jpg')">세척 전 사진</div>
+          <div class="cw-ba__img cw-ba__img--after" style="background-image:url('https://cdn.jsdelivr.net/gh/garpull0120/cheonun@7f6e5ccea7bcf5a5580ac49e0f22fb6c3fa2f2e0/ba2_after.jpg')">세척 후 사진</div>
+          <span class="cw-ba__tag cw-ba__tag--b">BEFORE</span><span class="cw-ba__tag cw-ba__tag--a">AFTER</span>
+          <span class="cw-ba__bar"></span>
+          <input type="range" min="0" max="100" value="50" aria-label="에어컨 필터 세척 전후 비교">
+        </div>
+        <div class="cw-card__body"><h3>에어컨 필터</h3><p>먼지로 막혀 있던 필터가 다시 비쳐 보이도록</p></div>
+      </article>
+      <article class="cw-card">
+        <div class="cw-ba">
+          <div class="cw-ba__img cw-ba__img--before" style="background-image:url('https://cdn.jsdelivr.net/gh/garpull0120/cheonun@7f6e5ccea7bcf5a5580ac49e0f22fb6c3fa2f2e0/ba6_before.jpg')">세척 전 사진</div>
+          <div class="cw-ba__img cw-ba__img--after" style="background-image:url('https://cdn.jsdelivr.net/gh/garpull0120/cheonun@7f6e5ccea7bcf5a5580ac49e0f22fb6c3fa2f2e0/ba6_after.jpg')">세척 후 사진</div>
+          <span class="cw-ba__tag cw-ba__tag--b">BEFORE</span><span class="cw-ba__tag cw-ba__tag--a">AFTER</span>
+          <span class="cw-ba__bar"></span>
+          <input type="range" min="0" max="100" value="50" aria-label="천장형 내부 패널 세척 전후 비교">
+        </div>
+        <div class="cw-card__body"><h3>천장형 내부 패널</h3><p>먼지와 물때가 앉은 패널을 고압세척으로</p></div>
+      </article>
+      <article class="cw-card">
+        <div class="cw-ba">
+          <div class="cw-ba__img cw-ba__img--before" style="background-image:url('https://cdn.jsdelivr.net/gh/garpull0120/cheonun@7f6e5ccea7bcf5a5580ac49e0f22fb6c3fa2f2e0/ba4_before.jpg')">세척 전 사진</div>
+          <div class="cw-ba__img cw-ba__img--after" style="background-image:url('https://cdn.jsdelivr.net/gh/garpull0120/cheonun@7f6e5ccea7bcf5a5580ac49e0f22fb6c3fa2f2e0/ba4_after.jpg')">세척 후 사진</div>
+          <span class="cw-ba__tag cw-ba__tag--b">BEFORE</span><span class="cw-ba__tag cw-ba__tag--a">AFTER</span>
+          <span class="cw-ba__bar"></span>
+          <input type="range" min="0" max="100" value="50" aria-label="시로코팬 세척 전후 비교">
+        </div>
+        <div class="cw-card__body"><h3>시로코팬</h3><p>날개 사이사이 쌓인 먼지까지</p></div>
+      </article>
+      <article class="cw-card cw-card--cta">
+        <p class="cw-label">사진으로 먼저 상담</p>
+        <h3>우리 에어컨도 이럴까요?</h3>
+        <p>에어컨 사진을 카카오톡으로 보내주시면 상태를 보고 세척 범위와 금액을 안내해 드립니다.</p>
+        <a class="cw-pill cw-pill--dark" href="https://open.kakao.com/o/sjdwBrRi" target="_blank" rel="noopener">카카오톡으로 사진 보내기</a>
+      </article>
+    </div>
+  </div></div>
+</section>
+</div>
+
+<script>
+(function(){
+  document.querySelectorAll('.cw-ba').forEach(function(box){
+    var r=box.querySelector('input'),a=box.querySelector('.cw-ba__img--after'),b=box.querySelector('.cw-ba__bar');
+    if(!r||box.dataset.ready)return;box.dataset.ready='1';
+    [].forEach.call(box.querySelectorAll('.cw-ba__img'),function(el){if(!/url\(['"]?\[/.test(el.getAttribute('style')||''))el.textContent='';});
+    function set(){a.style.clipPath='inset(0 0 0 '+r.value+'%)';b.style.left=r.value+'%';}
+    r.addEventListener('input',set);set();
+  });
+})();
+</script>

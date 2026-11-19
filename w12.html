@@ -1,0 +1,177 @@
+<!-- 천운에어컨 | 12 견적 문의 폼 | 쓰는 곳: ① '에어컨 청소' 페이지 맨 끝(10 → 03 → 12) ② '문의' 페이지(12 하나만)
+     ※ '문의' 페이지처럼 이 위젯 하나만 넣을 땐 아래 section 안의 class="cw-in cw-in--bottom" 을 class="cw-in cw-in--full" 로 바꾸면 위쪽 모서리도 둥글어짐
+     바꿀 곳 없음 (전화번호·카톡 링크 입력 완료). 이 위젯 안의 폼 위치 이름표는 id="quote-form" — 같은 페이지의 '견적 문의' 버튼들이 href="#quote-form" 으로 이 폼까지 부드럽게 내려옴
+     보내기: 휴대폰은 문자앱이 열리고 내용이 채워짐 → 손님이 전송을 눌러야 도착 / PC는 내용이 복사되고 카카오톡 상담창이 열림 → 손님이 붙여넣어 보내야 도착 (자동 접수가 필요하면 아임웹 기본 입력폼 위젯 사용) 
+     자동 접수 연결 완료: 문의가 구글 스크립트를 거쳐 카카오톡(나와의 채팅)으로 자동 도착함 (카톡자동접수/ 폴더 설명서 참고). 접수 주소를 바꾸려면 코드 안 var ENDPOINT 값을 교체
+     -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400..900&display=swap');
+/* 공통 색 (바꾸면 이 위젯 전체 색이 바뀜) */
+.cw-w12 .cw{--frame:#15182b;--ink:#1d2033;--muted:#6a6e84;--paper:#fbfbff;--line:#e3e5f2;--cline:#e6e8f4;--green:#d9dbf8;--green-l:#f3f5fc;--green-d:#6870ba;--green-t:#dce2f8;--dark:#23274a;--grad:linear-gradient(to bottom right,#dfedfc 0%,#dfedfc 20%,#ede4fb 60%,#ede4fb 100%);--grad-l:linear-gradient(to bottom right,#ebf3fd 0%,#ebf3fd 20%,#f2ecfc 60%,#f2ecfc 100%);font-family:'Noto Sans KR','Malgun Gothic','Apple SD Gothic Neo',sans-serif;font-weight:500;font-size:16px;letter-spacing:-.045em;line-height:1.6;color:var(--ink);background:var(--frame);padding:0 12px;word-break:keep-all;box-sizing:border-box}
+:where(.cw-w12 .cw) *,:where(.cw-w12 .cw) *::before,:where(.cw-w12 .cw) *::after{box-sizing:inherit;margin:0;padding:0}
+.cw-w12 .cw a{color:inherit;text-decoration:none}
+.cw-w12 .cw-in{background:var(--paper);padding:45px 42px 48px}
+.cw-w12 .cw-wrap{max-width:1320px;margin:0 auto}
+.cw-w12 .cw .cw-pill{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:48px;border:0;border-radius:40px;padding:14px 24px;background:#fff;color:#261c33;font:inherit;font-weight:700;font-size:14px;cursor:pointer;transition:transform .2s,background .2s}
+.cw-w12 .cw .cw-pill--green{background:var(--grad)}
+.cw-w12 .cw .cw-pill--dark{background:var(--dark);color:#fff}
+@media (hover:hover){.cw-w12 .cw .cw-pill:hover{transform:translateY(-2px);background:#d4ddf3;color:#261c33}}
+.cw-w12 .cw-label{font-size:14px;color:#646b7d;margin-bottom:17px}
+.cw-w12 .cw-head{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:22px}
+.cw-w12 .cw-head h2{font-size:31px;font-weight:800;letter-spacing:-.07em;line-height:1.3}
+.cw-w12 .cw-tag{display:inline-block;vertical-align:middle;margin-left:12px;border:1px solid #ced7eb;border-radius:20px;padding:5px 11px;color:var(--green-d);font-size:12px;font-weight:500;letter-spacing:-.03em}
+.cw-w12 .cw-link{font-size:14px;border-bottom:1px solid #b3b9c8;padding-bottom:4px;white-space:nowrap}
+.cw-w12 .cw-body{font-size:15px;line-height:1.85;color:var(--muted)}
+@media (max-width:900px){.cw-w12 .cw{padding:0 8px}.cw-w12 .cw-in{padding:32px 25px}}
+@media (max-width:560px){.cw-w12 .cw-in{padding:28px 20px}.cw-w12 .cw-head h2{font-size:25px}.cw-w12 .cw-tag{display:none}.cw-w12 .cw-link{font-size:12px}}
+@media (prefers-reduced-motion:reduce){.cw-w12 .cw *{transition:none!important}}
+.cw-w12 .cw{padding-bottom:12px}
+.cw-w12 .cw-in--bottom{border-radius:0 0 28px 28px;padding-top:0}
+.cw-w12 .cw-in--full{border-radius:28px;padding-top:45px}
+.cw-w12 .cw-form-wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:48px;border-top:1px solid var(--line);padding-top:40px;scroll-margin-top:100px}
+.cw-w12 .cw-form-wrap h2{font-size:37px;line-height:1.3;letter-spacing:-.07em;font-weight:800;margin-bottom:16px}
+.cw-w12 .cw-side-box{margin-top:26px;background:var(--grad-l);border-radius:20px;padding:24px}
+.cw-w12 .cw-tel{display:inline-block;font-size:30px;font-weight:800;letter-spacing:-.05em;margin:0 0 14px}
+.cw-w12 .cw-form{background:#fff;border:1px solid var(--cline);border-radius:20px;padding:30px}
+.cw-w12 .cw-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.cw-w12 .cw-f{margin-bottom:16px}
+.cw-w12 .cw-f label,.cw-w12 .cw-f .cw-flabel{display:block;font-size:14px;font-weight:700;margin-bottom:8px}
+.cw-w12 .cw-f label em,.cw-w12 .cw-flabel em{font-style:normal;color:#b5562f;margin-left:2px}
+.cw-w12 .cw-f input,.cw-w12 .cw-f select,.cw-w12 .cw-f textarea{width:100%;border:1px solid #d5dbe7;border-radius:10px;padding:12px;background:#fff;color:var(--ink);font:inherit;font-size:15px;letter-spacing:-.03em}
+.cw-w12 .cw-f input:focus,.cw-w12 .cw-f select:focus,.cw-w12 .cw-f textarea:focus{outline:2px solid var(--green);outline-offset:1px;border-color:var(--green-d)}
+.cw-w12 .cw-f textarea{min-height:110px;resize:vertical}
+.cw-w12 .cw-count{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.cw-w12 .cw-count label{font-size:13px;font-weight:600;color:#4b5468;margin-bottom:6px}
+.cw-w12 .cw-agree{display:flex;gap:8px;align-items:flex-start;font-size:13px;color:#4b5468;line-height:1.6;margin:4px 0 18px}
+.cw-w12 .cw-agree input{margin-top:3px;width:auto;accent-color:#455a8d}
+.cw-w12 .cw-form .cw-pill{width:100%;min-height:54px;font-size:16px}
+.cw-w12 .cw-err{color:#b5562f;font-size:13px;margin:-6px 0 12px;min-height:1em}
+.cw-w12 .cw-done{display:none;margin-top:14px;padding:14px 16px;border-radius:12px;background:#edf0f9;font-size:14px;line-height:1.7}
+.cw-w12 .cw-done.is-on{display:block}
+.cw-w12 .cw-done textarea{width:100%;margin-top:8px;min-height:120px;border:1px solid #d5dbe7;border-radius:10px;padding:10px;font:inherit;font-size:13px}
+@media (max-width:900px){
+  .cw-w12 .cw{padding-bottom:8px}
+  .cw-w12 .cw-form-wrap{grid-template-columns:1fr;gap:28px}
+}
+@media (max-width:560px){
+  .cw-w12 .cw-form-wrap h2{font-size:30px}
+  .cw-w12 .cw-form{padding:20px}
+  .cw-w12 .cw-row{grid-template-columns:1fr;gap:0}
+  .cw-w12 .cw-count{grid-template-columns:1fr 1fr}
+}
+.cw-w12 .cw-hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none}
+</style>
+<div class="cw-w12">
+
+<section class="cw" aria-labelledby="cwQuoteTitle">
+  <div class="cw-in cw-in--bottom"><div class="cw-wrap">
+    <div class="cw-form-wrap" id="quote-form">
+      <div>
+        <p class="cw-label">견적 문의</p>
+        <h2 id="cwQuoteTitle">무료 견적,<br>간단히 남겨주세요.</h2>
+        <p class="cw-body">에어컨 종류와 대수, 지역만 알려주셔도 됩니다.<br>확인 후 작업 범위와 금액을 먼저 안내해 드립니다.</p>
+        <div class="cw-side-box">
+          <p class="cw-label">바로 상담</p>
+          <a class="cw-tel" href="tel:01073300942">010-7330-0942</a>
+          <div><a class="cw-pill cw-pill--green" href="https://open.kakao.com/o/sjdwBrRi" target="_blank" rel="noopener">카카오톡 상담</a></div>
+        </div>
+      </div>
+
+      <form class="cw-form" id="cwQuoteForm" novalidate>
+        <div class="cw-row">
+          <div class="cw-f"><label for="cqName">이름<em>*</em></label><input id="cqName" autocomplete="name" maxlength="30" required></div>
+          <div class="cw-f"><label for="cqTel">연락처<em>*</em></label><input id="cqTel" type="tel" inputmode="tel" autocomplete="tel" placeholder="010-0000-0000" maxlength="20" required></div>
+        </div>
+        <div class="cw-f"><label for="cqPlace">현장 종류</label>
+          <select id="cqPlace"><option>가정집</option><option>상가 · 식당 · 카페</option><option>학원 · 병원</option><option>학교 · 기숙사</option><option>모텔 · 호텔 · 리조트</option><option>실버타운</option><option>기타</option></select></div>
+        <div class="cw-f"><span class="cw-flabel">에어컨 종류별 대수</span>
+          <div class="cw-count">
+            <div><label for="cqStand">스탠드</label><input id="cqStand" type="number" min="0" max="200" value="0" inputmode="numeric"></div>
+            <div><label for="cqWall">벽걸이</label><input id="cqWall" type="number" min="0" max="200" value="0" inputmode="numeric"></div>
+            <div><label for="cq2in1">2in1</label><input id="cq2in1" type="number" min="0" max="200" value="0" inputmode="numeric"></div>
+            <div><label for="cqCeil">천장형</label><input id="cqCeil" type="number" min="0" max="200" value="0" inputmode="numeric"></div>
+          </div>
+        </div>
+        <div class="cw-row">
+          <div class="cw-f"><label for="cqArea">지역<em>*</em></label><input id="cqArea" placeholder="예: 김포시 구래동" maxlength="60" required></div>
+          <div class="cw-f"><label for="cqDate">희망 일정</label><input id="cqDate" placeholder="예: 다음 주 평일 오전" maxlength="60"></div>
+        </div>
+        <div class="cw-f"><label for="cqMsg">문의 내용</label><textarea id="cqMsg" maxlength="800" placeholder="냄새나 오염 상태, 영업시간(작업 가능한 시간) 등 아시는 만큼 적어주세요."></textarea></div>
+        <label class="cw-agree"><input type="checkbox" id="cqAgree" required><span>입력한 이름·연락처는 견적 상담 연락에만 사용하며, 상담이 끝나면 보관하지 않습니다. (필수)</span></label>
+        <input type="text" class="cw-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <p class="cw-err" id="cqErr" role="alert"></p>
+        <button type="submit" class="cw-pill cw-pill--dark">견적 문의 보내기</button>
+        <div class="cw-done" id="cqDone" role="status"></div>
+      </form>
+    </div>
+  </div></div>
+</section>
+</div>
+
+<script>
+(function(){
+  /* 같은 페이지의 '견적 문의' 버튼(#quote-form)을 누르면 폼까지 부드럽게 이동 */
+  if(!document.documentElement.dataset.quoteScroll){document.documentElement.dataset.quoteScroll='1';
+    document.addEventListener('click',function(e){
+      var a=e.target.closest&&e.target.closest('a[href="#quote-form"]');if(!a)return;
+      var t=document.getElementById('quote-form');if(!t)return;
+      e.preventDefault();
+      var slow=!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches);
+      t.scrollIntoView({behavior:slow?'smooth':'auto',block:'start'});
+      setTimeout(function(){var n=document.getElementById('cqName');if(n&&n.focus)n.focus({preventScroll:true});},500);
+    });
+  }
+  /* 보내기: 휴대폰은 문자앱, PC는 복사 + 카카오톡 */
+  var f=document.getElementById('cwQuoteForm');if(!f||f.dataset.ready)return;f.dataset.ready='1';
+  var T0=Date.now();var TEL='01073300942',KAKAO='https://open.kakao.com/o/sjdwBrRi';
+  var err=document.getElementById('cqErr'),done=document.getElementById('cqDone');
+  function v(id){return (document.getElementById(id).value||'').trim();}
+  function n(id){var x=parseInt(document.getElementById(id).value,10);return isNaN(x)||x<0?0:x;}
+  f.addEventListener('submit',function(e){
+    e.preventDefault();err.textContent='';
+    var name=v('cqName'),tel=v('cqTel'),area=v('cqArea');
+    if(!name){err.textContent='이름을 입력해 주세요.';document.getElementById('cqName').focus();return;}
+    if(!/^[0-9\-\s]{9,}$/.test(tel)){err.textContent='연락처를 정확히 입력해 주세요.';document.getElementById('cqTel').focus();return;}
+    var items=[['스탠드',n('cqStand')],['벽걸이',n('cqWall')],['2in1',n('cq2in1')],['천장형',n('cqCeil')]].filter(function(x){return x[1]>0;}).map(function(x){return x[0]+' '+x[1]+'대';});
+    if(!items.length&&!v('cqMsg')){err.textContent='에어컨 종류별 대수를 입력하거나 문의 내용을 적어 주세요.';document.getElementById('cqStand').focus();return;}
+    if(!area){err.textContent='지역을 입력해 주세요.';document.getElementById('cqArea').focus();return;}
+    if(!document.getElementById('cqAgree').checked){err.textContent='개인정보 이용에 동의해 주세요.';return;}
+    var text=['[천운에어컨 청소 견적 문의]','이름: '+name,'연락처: '+tel,'현장: '+v('cqPlace'),'에어컨: '+(items.join(', ')||'문의 내용 참고'),'지역: '+area,'희망 일정: '+(v('cqDate')||'상담 후 결정'),'내용: '+(v('cqMsg')||'-')].join('\n');
+    function manual(){
+    var ua=navigator.userAgent,mobile=/Android|iPhone|iPad|iPod/i.test(ua);
+    if(mobile){
+      var sep=/iPhone|iPad|iPod/i.test(ua)?'&':'?';
+      location.href='sms:'+TEL+sep+'body='+encodeURIComponent(text);
+      done.innerHTML='문자앱이 열렸어요. <b>전송 버튼</b>을 꼭 눌러야 접수됩니다.<br>문자앱이 안 열리면 <a href="tel:'+TEL+'"><b>010-7330-0942</b></a>로 전화 주세요.';
+      done.classList.add('is-on');return;
+    }
+    function show(copied){
+      done.innerHTML=(copied?'문의 내용이 <b>복사</b>됐어요. 열린 카카오톡 상담창에 <b>붙여넣기(Ctrl+V)</b> 후 보내주세요.':'아래 내용을 복사해서 카카오톡 상담창에 보내주세요.')+'<br><a href="'+KAKAO+'" target="_blank" rel="noopener"><b>카카오톡 상담창 다시 열기</b></a>';
+      if(!copied){var ta=document.createElement('textarea');ta.readOnly=true;ta.value=text;done.appendChild(ta);ta.select();}
+      done.classList.add('is-on');
+    }
+    var cp=(navigator.clipboard&&navigator.clipboard.writeText)?navigator.clipboard.writeText(text):Promise.reject();
+    window.open(KAKAO,'_blank','noopener');
+    cp.then(function(){show(true);},function(){show(false);});
+    }
+    /* 자동 접수: 접수 주소가 설정돼 있으면 카카오톡으로 자동 전달, 아니면(또는 실패하면) 문자·카톡 방식 */
+    var ENDPOINT='https://script.google.com/macros/s/AKfycbx6RKGz6UsZA0HO_DCEJkSKJ7bGTCGkSmS04PyZZXGNRlh6Vi-y-OZ1PLdWpJYHMoT-/exec';
+    if(/^https:\/\//.test(ENDPOINT)){
+      var sb=f.querySelector('button[type="submit"]'),sbt=sb.textContent;sb.disabled=true;sb.textContent='보내는 중...';
+      var hp=f.querySelector('.cw-hp');
+      var payload={type:'청소',name:name,tel:tel,text:text,hp:hp?hp.value:'',t:Date.now()-T0};
+      /* 15초 안에 응답이 없으면 자동으로 문자·카톡 방식으로 전환 (버튼이 '보내는 중'에 멈추지 않게) */
+      var finished=false;
+      var timer=setTimeout(function(){if(finished)return;finished=true;sb.disabled=false;sb.textContent=sbt;manual();},15000);
+      fetch(ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(payload)}).then(function(){
+        if(finished)return;finished=true;clearTimeout(timer);
+        sb.disabled=false;sb.textContent=sbt;
+        done.innerHTML='문의가 <b>접수</b>되었어요. 확인 후 곧 연락드리겠습니다.<br>급하시면 <a href="tel:'+TEL+'"><b>010-7330-0942</b></a>로 전화 주세요.';
+        done.classList.add('is-on');f.reset();
+      },function(){if(finished)return;finished=true;clearTimeout(timer);sb.disabled=false;sb.textContent=sbt;manual();});
+      return;
+    }
+    manual();
+  });
+})();
+</script>
