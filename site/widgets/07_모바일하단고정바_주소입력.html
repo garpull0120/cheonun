@@ -1,0 +1,26 @@
+<!-- 천운에어컨 | 07 모바일 하단 고정 전화·카톡 버튼
+     붙이는 곳: 아임웹 "푸터" 영역에 코드 위젯으로 넣으면 모든 페이지에 한 번에 적용됨
+     (또는 사이트 설정 > SEO/헤더 > Body 코드 삽입 칸에 붙여넣기)
+     전화번호·카카오톡 오픈채팅 링크 입력 완료 (바꿀 곳 없음) -->
+<style>
+.cw-mbar{display:none}
+@media (max-width:900px){
+  .cw-mbar{display:grid;grid-template-columns:1fr 1fr;gap:8px;position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:9999;font-family:'Noto Sans KR','Malgun Gothic','Apple SD Gothic Neo',sans-serif;letter-spacing:-.045em}
+  .cw-mbar a{display:flex;align-items:center;justify-content:center;gap:7px;min-height:52px;border-radius:40px;font-size:15px;font-weight:700;text-decoration:none;box-shadow:0 5px 25px #0003}
+  .cw-mbar__tel{background:#1c2333;color:#fff}
+  .cw-mbar__kakao{background:#c0ceed;color:#1c222e}
+  .cw-mbar svg{width:17px;height:17px;flex:none}
+  .cw-mbar-space{height:76px}
+}
+</style>
+<div class="cw-mbar-space" aria-hidden="true"></div>
+<nav class="cw-mbar" aria-label="빠른 상담">
+  <a class="cw-mbar__tel" href="tel:01073300942">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>
+    전화 상담
+  </a>
+  <a class="cw-mbar__kakao" href="https://open.kakao.com/o/sjdwBrRi" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3C6.5 3 2 6.5 2 10.8c0 2.8 1.9 5.2 4.7 6.6l-1 3.6c-.1.3.3.6.6.4l4.2-2.8c.5.1 1 .1 1.5.1 5.5 0 10-3.5 10-7.9S17.5 3 12 3z"/></svg>
+    카카오톡 상담
+  </a>
+</nav>

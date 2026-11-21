@@ -1,0 +1,27 @@
+<!-- 천운에어컨 | 09 SEO 헤더 코드
+     붙이는 곳: 아임웹 관리자 > 환경설정(사이트 설정) > SEO > "헤더 코드" 칸
+     ※ 사이트 제목·설명·대표 이미지(OG)·파비콘은 같은 SEO 메뉴의 입력칸에 따로 넣는 게 우선임 (가이드 참고)
+     바꿀 곳: [도메인] [OG이미지주소] / 주소가 확정되면 address 블록 채우기 -->
+
+<!-- 1) 폰트 미리 연결 (전체 페이지 글꼴 속도 개선) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400..900&display=swap" rel="stylesheet">
+
+<!-- 2) 네이버·구글용 업체 정보 (구조화 데이터) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HVACBusiness",
+  "name": "천운에어컨",
+  "alternateName": "CHEONUN AIRCON",
+  "description": "가정집·상가·학원·병원·학교·기숙사·모텔·호텔·리조트·실버타운 에어컨 완전분해 세척. 세척 전·후 사진 제공, 영업시간 외 작업, 여러 대 현장 할인.",
+  "url": "https://[도메인]",
+  "image": "https://cdn.jsdelivr.net/gh/garpull0120/cheonun@7f6e5ccea7bcf5a5580ac49e0f22fb6c3fa2f2e0/og.jpg",
+  "telephone": "+82-10-7330-0942",
+  "makesOffer": {
+    "@type": "Offer",
+    "itemOffered": {"@type": "Service", "name": "에어컨 완전분해 세척 (출장)"}
+  }
+}
+</script>

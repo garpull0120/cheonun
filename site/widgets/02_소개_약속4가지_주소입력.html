@@ -1,0 +1,90 @@
+<!-- 천운에어컨 | 02 소개 + 약속 4가지 | 히어로 바로 아래 코드 위젯 (밝은 본문판이 히어로 위로 살짝 겹쳐 올라오는 첫 섹션)
+     바꿀 곳: [에어컨청소페이지주소] [문의페이지주소] -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400..900&display=swap');
+/* 공통 색 (바꾸면 이 위젯 전체 색이 바뀜) */
+.cw-w02 .cw{--frame:#15182b;--ink:#1d2033;--muted:#6a6e84;--paper:#fbfbff;--line:#e3e5f2;--cline:#e6e8f4;--green:#d9dbf8;--green-l:#f3f5fc;--green-d:#6870ba;--green-t:#dce2f8;--dark:#23274a;--grad:linear-gradient(to bottom right,#dfedfc 0%,#dfedfc 20%,#ede4fb 60%,#ede4fb 100%);--grad-l:linear-gradient(to bottom right,#ebf3fd 0%,#ebf3fd 20%,#f2ecfc 60%,#f2ecfc 100%);font-family:'Noto Sans KR','Malgun Gothic','Apple SD Gothic Neo',sans-serif;font-weight:500;font-size:16px;letter-spacing:-.045em;line-height:1.6;color:var(--ink);background:var(--frame);padding:0 12px;word-break:keep-all;box-sizing:border-box}
+:where(.cw-w02 .cw) *,:where(.cw-w02 .cw) *::before,:where(.cw-w02 .cw) *::after{box-sizing:inherit;margin:0;padding:0}
+.cw-w02 .cw a{color:inherit;text-decoration:none}
+.cw-w02 .cw-in{background:var(--paper);padding:45px 42px 48px}
+.cw-w02 .cw-wrap{max-width:1320px;margin:0 auto}
+.cw-w02 .cw .cw-pill{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:48px;border:0;border-radius:40px;padding:14px 24px;background:#fff;color:#261c33;font:inherit;font-weight:700;font-size:14px;cursor:pointer;transition:transform .2s,background .2s}
+.cw-w02 .cw .cw-pill--green{background:var(--grad)}
+.cw-w02 .cw .cw-pill--dark{background:var(--dark);color:#fff}
+@media (hover:hover){.cw-w02 .cw .cw-pill:hover{transform:translateY(-2px);background:#d4ddf3;color:#261c33}}
+.cw-w02 .cw-label{font-size:14px;color:#646b7d;margin-bottom:17px}
+.cw-w02 .cw-head{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:22px}
+.cw-w02 .cw-head h2{font-size:31px;font-weight:800;letter-spacing:-.07em;line-height:1.3}
+.cw-w02 .cw-tag{display:inline-block;vertical-align:middle;margin-left:12px;border:1px solid #ced7eb;border-radius:20px;padding:5px 11px;color:var(--green-d);font-size:12px;font-weight:500;letter-spacing:-.03em}
+.cw-w02 .cw-link{font-size:14px;border-bottom:1px solid #b3b9c8;padding-bottom:4px;white-space:nowrap}
+.cw-w02 .cw-body{font-size:15px;line-height:1.85;color:var(--muted)}
+@media (max-width:900px){.cw-w02 .cw{padding:0 8px}.cw-w02 .cw-in{padding:32px 25px}}
+@media (max-width:560px){.cw-w02 .cw-in{padding:28px 20px}.cw-w02 .cw-head h2{font-size:25px}.cw-w02 .cw-tag{display:none}.cw-w02 .cw-link{font-size:12px}}
+@media (prefers-reduced-motion:reduce){.cw-w02 .cw *{transition:none!important}}
+.cw-w02 .cw-in--top{position:relative;z-index:2;border-radius:28px 28px 0 0;margin-top:-40px}
+.cw-w02 .cw-intro{display:grid;grid-template-columns:.8fr 1fr 1.4fr;gap:40px;padding-bottom:36px;border-bottom:1px solid var(--line)}
+.cw-w02 .cw-list{list-style:none;display:grid;grid-template-columns:1fr 1fr;column-gap:12px;line-height:2;font-size:17px}
+.cw-w02 .cw-list li::before{content:'·';margin-right:9px;color:#556895}
+.cw-w02 .cw-intro h2{font-size:30px;line-height:1.3;letter-spacing:-.06em;font-weight:800;margin-bottom:18px}
+.cw-w02 .cw-intro .cw-body{margin-bottom:24px}
+.cw-w02 .cw-feature{position:relative;overflow:hidden;border-radius:20px;background:#1e2537;color:#fff;padding:32px}
+.cw-w02 .cw-feature::after{content:"";position:absolute;width:190px;height:190px;border:35px solid #bbc8e630;border-radius:50%;right:-85px;bottom:-100px}
+.cw-w02 .cw-feature .cw-body{color:#d7dbe5;max-width:340px}
+.cw-w02 .cw-promise{margin-top:34px}
+.cw-w02 .cw-steps{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;border-top:1px solid var(--line);padding-top:25px}
+.cw-w02 .cw-steps small{color:#6378a8;font-size:14px}
+.cw-w02 .cw-steps h3{margin:9px 0;font-size:19px;font-weight:800;letter-spacing:-.06em}
+.cw-w02 .cw-steps p{font-size:14px;line-height:1.75;color:#686f80}
+@media (max-width:900px){
+  .cw-w02 .cw-intro{grid-template-columns:1fr 1.3fr;gap:25px}
+  .cw-w02 .cw-intro>div:first-child{grid-column:1/-1}
+  .cw-w02 .cw-list{grid-template-columns:repeat(5,auto);justify-content:start;column-gap:18px;font-size:15px}
+  .cw-w02 .cw-steps{grid-template-columns:1fr 1fr}
+}
+@media (max-width:560px){
+  .cw-w02 .cw-in--top{margin-top:-30px}
+  .cw-w02 .cw-intro{grid-template-columns:1fr;gap:24px}
+  .cw-w02 .cw-list{grid-template-columns:repeat(3,auto)}
+  .cw-w02 .cw-intro h2{font-size:27px}
+  .cw-w02 .cw-feature{padding:25px}
+  .cw-w02 .cw-steps h3{font-size:17px}
+}
+</style>
+<div class="cw-w02">
+
+<section class="cw">
+  <div class="cw-in cw-in--top"><div class="cw-wrap">
+    <div class="cw-intro">
+      <div>
+        <p class="cw-label">이런 곳을 찾아갑니다</p>
+        <ul class="cw-list">
+          <li>가정집</li><li>상가</li><li>학원</li><li>병원</li><li>학교</li>
+          <li>기숙사</li><li>모텔</li><li>호텔</li><li>리조트</li><li>실버타운</li>
+        </ul>
+      </div>
+      <div>
+        <p class="cw-label">필터 너머까지 닦는 세척</p>
+        <h2>에어컨 속까지,<br>끝까지 분해합니다.</h2>
+        <p class="cw-body">필터만 씻어서는 송풍팬과 열교환기 깊숙한 곳까지 닿지 않습니다. 저희는 반드시 완전히 분해해서 세척합니다.</p>
+        <a class="cw-pill cw-pill--dark" href="/cleaning">종류별 가격 보기</a>
+      </div>
+      <div class="cw-feature">
+        <p class="cw-label" style="color:#bec5d6">지금이 청소할 때</p>
+        <h2>난방을 켜기 전에,<br>한 번 열어보세요.</h2>
+        <p class="cw-body">여름 내내 쌓인 냄새는 난방을 켜는 순간 매장 전체로 퍼집니다.</p>
+        <a class="cw-pill" href="/contact">무료 견적 문의</a>
+      </div>
+    </div>
+
+    <div class="cw-promise">
+      <div class="cw-head"><h2>천운에어컨이 지키는 네 가지<span class="cw-tag">약속</span></h2></div>
+      <ul class="cw-steps">
+        <li><small>첫 번째 약속</small><h3>완전분해 세척</h3><p>겉만 닦는 청소는 하지 않습니다. 송풍팬, 열교환기, 드레인판까지 분해합니다.</p></li>
+        <li><small>두 번째 약속</small><h3>전·후 사진 제공</h3><p>세척 전과 후, 사장님이 직접 눈으로 확인하세요.</p></li>
+        <li><small>세 번째 약속</small><h3>영업시간 피해 작업</h3><p>오픈 전 · 마감 후 · 주말에도 작업합니다.</p></li>
+        <li><small>네 번째 약속</small><h3>여러 대 현장 할인</h3><p>상가 · 학교 · 기숙사 · 호텔 · 리조트 · 실버타운 등 여러 대 현장은 단체 견적을 드립니다.</p></li>
+      </ul>
+    </div>
+  </div></div>
+</section>
+</div>

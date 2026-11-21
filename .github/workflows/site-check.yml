@@ -1,0 +1,57 @@
+name: 사이트 매일 점검
+
+on:
+  schedule:
+    - cron: "17 0 * * *"   # 매일 한국시간 오전 9시 17분
+  workflow_dispatch:        # Actions 탭에서 직접 실행도 가능
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: 사이트 점검 실행
+        id: check
+        run: |
+          set +e
+          python scripts/site_check.py > report.md 2>&1
+          echo "code=$?" >> "$GITHUB_OUTPUT"
+          cat report.md
+
+      - name: 문제가 있으면 이슈로 알림
+        if: steps.check.outputs.code != '0'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          title="사이트 점검 실패 $(TZ=Asia/Seoul date +%Y-%m-%d)"
+          gh issue create --title "$title" --body-file report.md --label "site-check" \
+            || gh issue create --title "$title" --body-file report.md
+          exit 1
+
+  lighthouse:
+    # 매주 월요일에만 속도·SEO 점수 측정 (결과는 Actions 실행 화면에서 확인)
+    if: github.event_name == 'workflow_dispatch' || github.event.schedule == '17 0 * * *'
+    runs-on: ubuntu-latest
+    steps:
+      - name: 월요일인지 확인
+        id: day
+        run: echo "dow=$(TZ=Asia/Seoul date +%u)" >> "$GITHUB_OUTPUT"
+
+      - name: Lighthouse 측정
+        if: github.event_name == 'workflow_dispatch' || steps.day.outputs.dow == '1'
+        uses: treosh/lighthouse-ci-action@v12
+        with:
+          urls: |
+            https://cheonun.imweb.me/
+            https://cheonun.imweb.me/contact
+          uploadArtifacts: true
+          temporaryPublicStorage: true
