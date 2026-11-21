@@ -33,9 +33,9 @@
 .cw-w01 .cw-hero__copy p{font-size:18px;line-height:1.8;color:#e7eaf2;margin-bottom:30px}
 .cw-w01 .cw-hero__btns{display:flex;flex-wrap:wrap;gap:10px}
 .cw-w01 .cw-hero__note{position:absolute;z-index:2;right:40px;bottom:76px;border-left:1px solid #ffffff80;padding-left:18px;font-size:14px;line-height:1.8;color:#f6f3f9}
-.cw-w01 .cw-hero__toggle{position:absolute;z-index:3;top:22px;right:22px;width:44px;height:44px;border-radius:50%;border:1px solid #ffffff70;background:#0d121e66;color:#fff;cursor:pointer;display:none;align-items:center;justify-content:center}
+.cw-w01 .cw-hero__toggle{position:absolute;z-index:3;top:22px;right:22px;height:42px;padding:0 16px 0 13px;gap:8px;border-radius:999px;border:1px solid #ffffffb3;background:#0d121ed9;color:#fff;font:600 14px/1 inherit;letter-spacing:-.01em;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:0 4px 14px #00000040;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);transition:background .2s}.cw-w01 .cw-hero__toggle:hover{background:#000000e6}.cw-w01 .cw-hero__toggle:focus-visible{outline:3px solid #fff;outline-offset:3px}.cw-w01 .cw-hero__toggle .t-play{display:none}.cw-w01 .cw-hero__toggle.is-paused .t-play{display:inline}.cw-w01 .cw-hero__toggle.is-paused .t-pause{display:none}
 .cw-w01 .cw-hero__toggle.is-show{display:flex}
-.cw-w01 .cw-hero__toggle svg{width:15px;height:15px;fill:currentColor}
+.cw-w01 .cw-hero__toggle svg{width:14px;height:14px;fill:currentColor;flex:none}
 .cw-w01 .cw-hero__toggle .i-play{display:none}
 .cw-w01 .cw-hero__toggle.is-paused .i-play{display:block}
 .cw-w01 .cw-hero__toggle.is-paused .i-pause{display:none}
@@ -53,7 +53,7 @@
   .cw-w01 .cw-hero h1 span{white-space:normal}
   .cw-w01 .cw-hero__copy p{font-size:16px}
   .cw-w01 .cw-hero__btns .cw-pill{flex:1 1 100%}
-  .cw-w01 .cw-hero__toggle{top:14px;right:14px}
+  .cw-w01 .cw-hero__toggle{top:14px;right:14px;height:38px;font-size:13px;padding:0 13px 0 11px}
 }
 </style>
 <div class="cw-w01">
@@ -65,6 +65,7 @@
     <button type="button" class="cw-hero__toggle" id="cwHeroToggle" aria-label="배경 영상 일시정지">
       <svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="2" width="3.5" height="12"/><rect x="9.5" y="2" width="3.5" height="12"/></svg>
       <svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2l10 6-10 6z"/></svg>
+      <span class="t-pause">영상 멈춤</span><span class="t-play">영상 재생</span>
     </button>
     <div class="cw-hero__copy">
       <p class="cw-eyebrow">가정집 · 상가 · 학원 · 병원 · 학교 · 기숙사 · 모텔 · 호텔 · 리조트 · 실버타운<strong>에어컨 완전분해 세척</strong></p>

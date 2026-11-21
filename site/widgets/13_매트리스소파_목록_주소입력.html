@@ -34,9 +34,9 @@
 .cw-w13 .cw-vl__label{font-size:14px;letter-spacing:.1em;color:var(--green-t);margin-bottom:16px}
 .cw-w13 .cw-vl h2{font-size:clamp(34px,4.4vw,58px);line-height:1.18;letter-spacing:-.075em;font-weight:800;margin-bottom:16px}
 .cw-w13 .cw-vl__sub{font-size:17px;line-height:1.8;color:#e7eaf5;margin-bottom:0;max-width:620px}
-.cw-w13 .cw-vl__toggle{position:absolute;z-index:3;top:22px;right:22px;width:44px;height:44px;border-radius:50%;border:1px solid #ffffff70;background:#15182b66;color:#fff;cursor:pointer;display:none;align-items:center;justify-content:center}
+.cw-w13 .cw-vl__toggle{position:absolute;z-index:3;top:22px;right:22px;height:42px;padding:0 16px 0 13px;gap:8px;border-radius:999px;border:1px solid #ffffffb3;background:#15182bd9;color:#fff;font:600 14px/1 inherit;letter-spacing:-.01em;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:0 4px 14px #00000040;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);transition:background .2s}.cw-w13 .cw-vl__toggle:hover{background:#000000e6}.cw-w13 .cw-vl__toggle:focus-visible{outline:3px solid #fff;outline-offset:3px}.cw-w13 .cw-vl__toggle .t-play{display:none}.cw-w13 .cw-vl__toggle.is-paused .t-play{display:inline}.cw-w13 .cw-vl__toggle.is-paused .t-pause{display:none}
 .cw-w13 .cw-vl__toggle.is-show{display:flex}
-.cw-w13 .cw-vl__toggle svg{width:15px;height:15px;fill:currentColor}
+.cw-w13 .cw-vl__toggle svg{width:14px;height:14px;fill:currentColor;flex:none}
 .cw-w13 .cw-vl__toggle .i-play{display:none}
 .cw-w13 .cw-vl__toggle.is-paused .i-play{display:block}
 .cw-w13 .cw-vl__toggle.is-paused .i-pause{display:none}
@@ -99,7 +99,7 @@
   .cw-w13 .cw-steps{grid-template-columns:1fr}
   .cw-w13 .cw-step{min-height:0}
   .cw-w13 .cw-vl__btns .cw-pill{flex:1 1 100%}
-  .cw-w13 .cw-vl__toggle{top:14px;right:14px}
+  .cw-w13 .cw-vl__toggle{top:14px;right:14px;height:38px;font-size:13px;padding:0 13px 0 11px}
 }
 </style>
 <div class="cw-w13">
@@ -111,6 +111,7 @@
     <button type="button" class="cw-vl__toggle" id="cwMatToggle" aria-label="배경 영상 일시정지">
       <svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="2" width="3.5" height="12"/><rect x="9.5" y="2" width="3.5" height="12"/></svg>
       <svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2l10 6-10 6z"/></svg>
+      <span class="t-pause">영상 멈춤</span><span class="t-play">영상 재생</span>
     </button>
     <div class="cw-vl__in">
       <p class="cw-vl__label">매트리스 · 소파 청소</p>
