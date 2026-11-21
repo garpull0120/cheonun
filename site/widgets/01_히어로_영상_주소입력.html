@@ -92,16 +92,18 @@
   var src=v.getAttribute('data-src'),msrc=v.getAttribute('data-src-mobile');
   if(window.innerWidth<860&&ok(msrc))src=msrc;
   var saveData=navigator.connection&&navigator.connection.saveData;
-  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if(!ok(v.getAttribute('poster')))v.removeAttribute('poster');
   if(!ok(src)||saveData)return;
   function sync(){btn.classList.toggle('is-paused',v.paused);btn.setAttribute('aria-label',v.paused?'배경 영상 재생':'배경 영상 일시정지');}
   v.src=src;v.preload='auto';
   btn.classList.add('is-show');
   v.addEventListener('play',sync);v.addEventListener('pause',sync);
-  btn.addEventListener('click',function(){if(v.paused){v.play().catch(function(){});}else{v.pause();}});
-  /* 기기에서 '애니메이션 줄이기'를 켠 방문자는 멈춘 상태로 시작(버튼으로 재생 가능) */
-  if(!reduce){v.play().catch(function(){});}
+  btn.addEventListener('click',function(){if(v.paused){delete v.dataset.userPaused;v.play().catch(function(){});}else{v.dataset.userPaused='1';v.pause();}});
+  /* 소리 없는 배경 영상은 접속하자마자 자동 재생. 저전력 모드 등으로 막히면 첫 터치·스크롤 때 다시 시도 */
+  v.muted=true;v.defaultMuted=true;v.setAttribute('muted','');v.setAttribute('autoplay','');
+  function tryPlay(){if(v.dataset.userPaused)return;var p=v.play();if(p&&p.catch)p.catch(function(){});}
+  tryPlay();v.addEventListener('canplay',tryPlay,{once:true});
+  ['touchstart','click','scroll'].forEach(function(e){window.addEventListener(e,function(){if(v.paused)tryPlay();},{once:true,passive:true});});
   sync();
 })();
 </script>
