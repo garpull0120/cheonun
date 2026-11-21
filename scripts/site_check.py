@@ -5,7 +5,7 @@
 
 점검 항목
 1. 주요 페이지가 정상(200)으로 열리는지
-2. 하단 사업자 주소를 뺀 본문에 지역명이 들어가 있지 않은지
+2. 하단 사업자 주소와 '출장 지역' 안내(06 위젯)를 뺀 본문에 지역명이 들어가 있지 않은지
 3. 구글·네이버 소유확인 코드가 홈에 남아 있는지
 4. 사이트맵에 우리 페이지만 있는지 (템플릿 상품 등 섞이지 않았는지)
 5. 페이지가 불러오는 jsDelivr 이미지·영상이 살아 있는지
@@ -47,6 +47,7 @@ class TextExtractor(HTMLParser):
         super().__init__()
         self.skip = 0
         self.footer_depth = 0
+        self.area_depth = 0
         self.depth = 0
         self.parts = []
 
@@ -59,16 +60,21 @@ class TextExtractor(HTMLParser):
             tag == "footer" or a.get("id") in ("doz_footer_wrap", "doz_footer")
         ):
             self.footer_depth = self.depth
+        # 06 위젯의 '출장 지역' 안내 블록은 의도적으로 지역명을 넣은 곳이라 검사에서 뺍니다.
+        if self.area_depth == 0 and "data-cw-area" in a:
+            self.area_depth = self.depth
 
     def handle_endtag(self, tag):
         if tag in ("script", "style", "noscript") and self.skip:
             self.skip -= 1
         if self.footer_depth and self.depth == self.footer_depth:
             self.footer_depth = 0
+        if self.area_depth and self.depth == self.area_depth:
+            self.area_depth = 0
         self.depth -= 1
 
     def handle_data(self, data):
-        if not self.skip and not self.footer_depth:
+        if not self.skip and not self.footer_depth and not self.area_depth:
             self.parts.append(data)
 
 
