@@ -1,0 +1,120 @@
+<!-- 천운에어컨 | 15 고객 후기 슬라이드 | 코드 위젯에 통째로 붙여넣기
+     후기 출처: 당근 '갈풀에어컨청소'(같은 대표가 운영하던 업체명) 공개 후기 원문. 글자 수정 없이 그대로 옮김.
+     후기 추가: <ul class="cw-rvs"> 안에 <li class="cw-rv"> 한 덩어리를 복사해서 붙이면 됨 -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400..900&display=swap');
+/* 공통 색 (바꾸면 이 위젯 전체 색이 바뀜) */
+.cw-w15 .cw{--frame:#15182b;--ink:#1d2033;--muted:#6a6e84;--paper:#fbfbff;--line:#e3e5f2;--cline:#e6e8f4;--green:#d9dbf8;--green-l:#f3f5fc;--green-d:#6870ba;--green-t:#dce2f8;--dark:#23274a;--grad:linear-gradient(to bottom right,#dfedfc 0%,#dfedfc 20%,#ede4fb 60%,#ede4fb 100%);--grad-l:linear-gradient(to bottom right,#ebf3fd 0%,#ebf3fd 20%,#f2ecfc 60%,#f2ecfc 100%);font-family:'Noto Sans KR','Malgun Gothic','Apple SD Gothic Neo',sans-serif;font-weight:500;font-size:16px;letter-spacing:-.045em;line-height:1.6;color:var(--ink);background:var(--frame);padding:0 12px;word-break:keep-all;box-sizing:border-box}
+:where(.cw-w15 .cw) *,:where(.cw-w15 .cw) *::before,:where(.cw-w15 .cw) *::after{box-sizing:inherit;margin:0;padding:0}
+.cw-w15 .cw a{color:inherit;text-decoration:none}
+.cw-w15 .cw-in{background:var(--paper);padding:45px 42px 48px}
+.cw-w15 .cw-wrap{max-width:1320px;margin:0 auto}
+.cw-w15 .cw .cw-pill{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:48px;border:0;border-radius:40px;padding:14px 24px;background:#fff;color:#261c33;font:inherit;font-weight:700;font-size:14px;cursor:pointer;transition:transform .2s,background .2s}
+.cw-w15 .cw .cw-pill--green{background:var(--grad)}
+.cw-w15 .cw .cw-pill--dark{background:var(--dark);color:#fff}
+@media (hover:hover){.cw-w15 .cw .cw-pill:hover{transform:translateY(-2px);background:#d4ddf3;color:#261c33}}
+.cw-w15 .cw-label{font-size:14px;color:#646b7d;margin-bottom:17px}
+.cw-w15 .cw-head{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:22px}
+.cw-w15 .cw-head h2{font-size:31px;font-weight:800;letter-spacing:-.07em;line-height:1.3}
+.cw-w15 .cw-tag{display:inline-block;vertical-align:middle;margin-left:12px;border:1px solid #ced7eb;border-radius:20px;padding:5px 11px;color:var(--green-d);font-size:12px;font-weight:500;letter-spacing:-.03em}
+.cw-w15 .cw-link{font-size:14px;border-bottom:1px solid #b3b9c8;padding-bottom:4px;white-space:nowrap}
+.cw-w15 .cw-body{font-size:15px;line-height:1.85;color:var(--muted)}
+@media (max-width:900px){.cw-w15 .cw{padding:0 8px}.cw-w15 .cw-in{padding:32px 25px}}
+@media (max-width:560px){.cw-w15 .cw-in{padding:28px 20px}.cw-w15 .cw-head h2{font-size:25px}.cw-w15 .cw-tag{display:none}.cw-w15 .cw-link{font-size:12px}}
+@media (prefers-reduced-motion:reduce){.cw-w15 .cw *{transition:none!important}}
+.cw-w15 .cw-in{padding-top:40px}
+.cw-w15 .cw-rvhead{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:22px}
+.cw-w15 .cw-rvhead h2{font-size:31px;font-weight:800;letter-spacing:-.07em;line-height:1.3}
+@media (max-width:560px){.cw-w15 .cw-rvhead h2{font-size:25px}}
+.cw-w15 .cw-score{display:flex;align-items:baseline;gap:10px;margin-top:6px;font-size:14px;color:var(--muted)}
+.cw-w15 .cw-score b{font-size:22px;font-weight:800;color:var(--ink);letter-spacing:-.04em}
+.cw-w15 .cw-score .st{color:#f4b400;letter-spacing:1px}
+.cw-w15 .cw-nav{display:flex;gap:8px;flex:none}
+.cw-w15 .cw-nav button{width:46px;height:46px;border-radius:50%;border:1px solid var(--cline);background:#fff;color:var(--ink);font:inherit;font-size:18px;font-weight:700;cursor:pointer;transition:background .2s,transform .2s}
+@media (hover:hover){.cw-w15 .cw-nav button:hover{background:var(--green-l);transform:translateY(-2px)}}
+.cw-w15 .cw-nav button:focus-visible{outline:2px solid var(--green-d);outline-offset:2px}
+.cw-w15 .cw-rvs{list-style:none;display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:2px 2px 14px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.cw-w15 .cw-rvs::-webkit-scrollbar{display:none}
+.cw-w15 .cw-rv{flex:0 0 calc((100% - 32px)/3);scroll-snap-align:start;display:flex;flex-direction:column;border:1px solid var(--cline);border-radius:20px;background:#fff;padding:24px 24px 20px;min-height:250px}
+.cw-w15 .cw-rv__top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.cw-w15 .cw-rv__star{color:#f4b400;font-size:15px;letter-spacing:2px}
+.cw-w15 .cw-rv__date{font-size:12.5px;color:#8a8fa3}
+.cw-w15 .cw-rv__txt{flex:1;font-size:15px;line-height:1.75;color:#33374d;display:-webkit-box;-webkit-line-clamp:7;-webkit-box-orient:vertical;overflow:hidden}
+.cw-w15 .cw-rv__who{margin-top:16px;padding-top:14px;border-top:1px solid var(--line);font-size:13px;color:#7a7f94}
+.cw-w15 .cw-dots{display:flex;justify-content:center;gap:6px;margin-top:8px}
+.cw-w15 .cw-dots button{width:7px;height:7px;border-radius:5px;border:0;padding:0;background:#d5d9ea;cursor:pointer;transition:width .2s,background .2s}
+.cw-w15 .cw-dots button[aria-current=true]{width:22px;background:var(--green-d)}
+.cw-w15 .cw-src{margin-top:16px;font-size:12px;line-height:1.7;color:#8a8fa3;text-align:center}
+@media (max-width:900px){.cw-w15 .cw-rv{flex-basis:calc((100% - 16px)/2)}}
+@media (max-width:560px){.cw-w15 .cw-rv{flex-basis:86%;min-height:230px;padding:20px}.cw-w15 .cw-nav button{width:40px;height:40px}.cw-w15 .cw-rvhead{align-items:center}}
+</style>
+<div class="cw-w15">
+<section class="cw" aria-labelledby="cwRvTitle">
+  <div class="cw-in"><div class="cw-wrap">
+    <p class="cw-label">고객 후기</p>
+    <div class="cw-rvhead">
+      <div>
+        <h2 id="cwRvTitle">직접 받아보신 분들의<br>이야기입니다.</h2>
+        <p class="cw-score"><span class="st" aria-hidden="true">★★★★★</span><b>5.0</b>당근 후기 90개</p>
+      </div>
+      <div class="cw-nav"><button type="button" class="cw-prev" aria-label="이전 후기">‹</button><button type="button" class="cw-next" aria-label="다음 후기">›</button></div>
+    </div>
+    <ul class="cw-rvs" tabindex="0" aria-label="고객 후기 목록">
+      <li class="cw-rv"><div class="cw-rv__top"><span class="cw-rv__star" aria-label="별점 5점">★★★★★</span><span class="cw-rv__date">2026.06</span></div>
+        <p class="cw-rv__txt">에어컨 청소 관리에 대한 실질적인 정보를 알려 주셔서 도움이 많이 되었어요! 이건 경험에서 우러 나온거지 단순 지식 전달이 아니시더라구요~!!<br>청소도 꼼꼼하게 잘 해 주셔서 안심하고 에어컨 틀수 있게 되었습니다^^<br>청소 할때마다 요청드릴 예정입니다!</p>
+        <p class="cw-rv__who">하늘** 님 · 당근 후기</p></li>
+      <li class="cw-rv"><div class="cw-rv__top"><span class="cw-rv__star" aria-label="별점 5점">★★★★★</span><span class="cw-rv__date">2026.06</span></div>
+        <p class="cw-rv__txt">작년에 받고 만족해서<br>올해 또 받았어요!<br>꼼꼼하고 빠르게 착착 해주셔서<br>매우 만족하여 대가없이 내돈내산 후기 남겨요😊</p>
+        <p class="cw-rv__who">말많으*** 님 · 당근 후기</p></li>
+      <li class="cw-rv"><div class="cw-rv__top"><span class="cw-rv__star" aria-label="별점 5점">★★★★★</span><span class="cw-rv__date">2026.06</span></div>
+        <p class="cw-rv__txt">셀프청소해보려고 유튜브 검색하다가<br>갈풀클린을 알게되어 의뢰드리게 되었어요-!<br>에어컨 내부가 너무 지저분해서 <br>앞으로 어떻게 관리해야하는지 질문도 많이 했는데<br>친절하게 관리법도 알려주시고,<br>청소도 깨끗하고 꼼꼼하게 해주셨어요💖<br>이제 매년 갈풀클린에서 청소 하려구요!👍👍</p>
+        <p class="cw-rv__who">코** 님 · 당근 후기</p></li>
+      <li class="cw-rv"><div class="cw-rv__top"><span class="cw-rv__star" aria-label="별점 5점">★★★★★</span><span class="cw-rv__date">2026.05</span></div>
+        <p class="cw-rv__txt">저렴하고 깔끔하게 잘 해주셨어요 ㅎㅎ 넘넘 감사합니다 ! 더운날 고생많으셨어요 사장님!</p>
+        <p class="cw-rv__who">155*** 님 · 당근 후기</p></li>
+      <li class="cw-rv"><div class="cw-rv__top"><span class="cw-rv__star" aria-label="별점 5점">★★★★★</span><span class="cw-rv__date">2026.05</span></div>
+        <p class="cw-rv__txt">드러운 곰팡내 에어컨을 환골탈태 시켜주셧어요.. <br>너무 더웠는데 빠르게 와주셔서 감사해요..</p>
+        <p class="cw-rv__who">랄라** 님 · 당근 후기</p></li>
+      <li class="cw-rv"><div class="cw-rv__top"><span class="cw-rv__star" aria-label="별점 5점">★★★★★</span><span class="cw-rv__date">2026.05</span></div>
+        <p class="cw-rv__txt">매년 에어컨 청소 부탁드리는데 업체입니다. 그 정도로 믿음이 가는 분이십니다.<br> 정말 꼼꼼히 잘 해주시고 작업 마무리도 깨끗히 정리해주셔서 너무 감사했습니다.<br>이번에는 부모님댁도 부탁드렸는데 정말이지 너무 만족하셔서 뿌듯합니다.<br>내년에도 부탁드릴께요♡</p>
+        <p class="cw-rv__who">천사** 님 · 당근 후기</p></li>
+      <li class="cw-rv"><div class="cw-rv__top"><span class="cw-rv__star" aria-label="별점 5점">★★★★★</span><span class="cw-rv__date">2026.05</span></div>
+        <p class="cw-rv__txt">청소 너무 너무 깨끗하게 해주고 가셨어요 대략 3시간정도 걸리구요<br>아이들이 어려서 매일 뛰노느라 먼지가 어마어마한데ㅠㅠ 물청소로 필터까지 싹다 해주고 가셨어요 너무 감사드립니다^^ 다음에도 이용약속 ㅎㅎ 환절기에 감기 조심하세요^^</p>
+        <p class="cw-rv__who">축** 님 · 당근 후기</p></li>
+      <li class="cw-rv"><div class="cw-rv__top"><span class="cw-rv__star" aria-label="별점 5점">★★★★★</span><span class="cw-rv__date">2026.05</span></div>
+        <p class="cw-rv__txt">날이 더워 급히 예약했는데 다음날 바로 와주셨고 , 애어컨 관리부터 사후 관리 방법까지 잘 전달해주셨어요 ^^ 감사합니다~!</p>
+        <p class="cw-rv__who">당** 님 · 당근 후기</p></li>
+      <li class="cw-rv"><div class="cw-rv__top"><span class="cw-rv__star" aria-label="별점 5점">★★★★★</span><span class="cw-rv__date">2026.05</span></div>
+        <p class="cw-rv__txt">깨끗하게 청소해주셨습니다<br>진행과정 사진으로 전달해주셔서 청소 전후 상태 확실하게 확인할 수 있었습니다</p>
+        <p class="cw-rv__who">kdh7**** 님 · 당근 후기</p></li>
+      <li class="cw-rv"><div class="cw-rv__top"><span class="cw-rv__star" aria-label="별점 5점">★★★★★</span><span class="cw-rv__date">2026.04</span></div>
+        <p class="cw-rv__txt">자세하게 설명도 해주시고 이렇게 꼼꼼하게 다 뜯어서 해주시는 곳 첨이예요 <br>지인들에게 추천하려합니다 감사합니다~^^</p>
+        <p class="cw-rv__who">곰* 님 · 당근 후기</p></li>
+    </ul>
+    <div class="cw-dots" aria-hidden="true"></div>
+    <p class="cw-src">천운에어컨 대표가 이전 상호 '갈풀클린(갈풀에어컨청소)'으로 작업하고 당근에서 받은 후기를 원문 그대로 옮겼습니다.</p>
+  </div></div>
+</section>
+</div>
+<script>
+(function(){
+  var root=document.currentScript&&document.currentScript.previousElementSibling;
+  if(!root||!root.classList.contains('cw-w15'))root=document.querySelector('.cw-w15');
+  var list=root.querySelector('.cw-rvs'),items=list.children,dots=root.querySelector('.cw-dots');
+  function step(){return items[0]?items[0].getBoundingClientRect().width+16:300}
+  function pages(){return Math.max(1,Math.ceil((list.scrollWidth-list.clientWidth)/step())+1)}
+  function cur(){return Math.round(list.scrollLeft/step())}
+  function draw(){var n=pages(),c=Math.min(cur(),n-1);if(dots.children.length!==n){dots.innerHTML='';for(var i=0;i<n;i++){var b=document.createElement('button');b.type='button';b.tabIndex=-1;(function(k){b.onclick=function(){go(k)}})(i);dots.appendChild(b)}}for(var j=0;j<n;j++)dots.children[j].setAttribute('aria-current',j===c?'true':'false')}
+  function go(i){var n=pages();if(i<0)i=n-1;if(i>=n)i=0;list.scrollTo({left:i*step(),behavior:'smooth'})}
+  root.querySelector('.cw-prev').onclick=function(){go(cur()-1);hold()};
+  root.querySelector('.cw-next').onclick=function(){go(cur()+1);hold()};
+  var t,paused=false,reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function auto(){clearInterval(t);if(reduce)return;t=setInterval(function(){if(!paused&&!document.hidden)go(cur()+1)},5000)}
+  function hold(){auto()}
+  ['mouseenter','focusin','touchstart'].forEach(function(e){root.addEventListener(e,function(){paused=true},{passive:true})});
+  ['mouseleave','focusout'].forEach(function(e){root.addEventListener(e,function(){paused=false})});
+  list.addEventListener('scroll',function(){window.requestAnimationFrame(draw)},{passive:true});
+  window.addEventListener('resize',draw);
+  draw();auto();
+})();
+</script>
