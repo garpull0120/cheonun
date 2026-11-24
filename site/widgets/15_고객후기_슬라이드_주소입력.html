@@ -169,7 +169,7 @@
   root.querySelector('.cw-prev').onclick=function(){go(cur()-1);hold()};
   root.querySelector('.cw-next').onclick=function(){go(cur()+1);hold()};
   var t,paused=false,reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
-  function auto(){clearInterval(t);if(reduce)return;t=setInterval(function(){if(!paused&&!document.hidden)go(cur()+1)},5000)}
+  function auto(){clearInterval(t);if(reduce)return;t=setInterval(function(){if(!paused&&!document.hidden)go(cur()+1)},2000)}
   function hold(){auto()}
   ['mouseenter','focusin','touchstart'].forEach(function(e){root.addEventListener(e,function(){paused=true},{passive:true})});
   ['mouseleave','focusout'].forEach(function(e){root.addEventListener(e,function(){paused=false})});
