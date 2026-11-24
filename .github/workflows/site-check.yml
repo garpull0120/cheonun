@@ -51,6 +51,6 @@ jobs:
         uses: treosh/lighthouse-ci-action@v12
         with:
           urls: |
-            https://cheonun.imweb.me/
-            https://cheonun.imweb.me/contact
+            https://cheonunaircon.co.kr/
+            https://cheonunaircon.co.kr/contact
           uploadArtifacts: true

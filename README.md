@@ -1,6 +1,6 @@
 # 천운에어컨 홈페이지 자료
 
-홈페이지: https://cheonun.imweb.me (아임웹)
+홈페이지: https://cheonunaircon.co.kr (아임웹, 기본 주소 https://cheonun.imweb.me)
 
 ## 폴더 안내
 

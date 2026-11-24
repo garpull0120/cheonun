@@ -16,7 +16,7 @@ import sys
 import urllib.request
 from html.parser import HTMLParser
 
-SITE = "https://cheonun.imweb.me"
+SITE = "https://cheonunaircon.co.kr"
 PAGES = ["/", "/cleaning", "/install", "/mattress", "/about", "/contact"]
 SITEMAP_EXPECTED = {"/home", "/cleaning", "/install", "/mattress", "/about", "/contact"}
 VERIFY_METAS = ["google-site-verification", "naver-site-verification"]
