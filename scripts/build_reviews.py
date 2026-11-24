@@ -3,7 +3,7 @@
 import json, re, html, pathlib
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 W = ROOT / "site/widgets/15_고객후기_슬라이드_주소입력.html"
-BAN = ["갈풀", "인천", "송림", "제물포", "미추홀", "남동", "부평", "연수", "계양", "송도", "청라", "부천", "김포", "시흥", "고양", "일산"]
+BAN = ["갈풀", "당근", "네이버", "인천", "송림", "제물포", "미추홀", "남동", "부평", "연수", "계양", "송도", "청라", "부천", "김포", "시흥", "고양", "일산"]
 def mask(n):
     if "*" in n: return n
     k = max(1, len(n) // 2); return n[:k] + "*" * (len(n) - k)
