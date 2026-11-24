@@ -15,7 +15,7 @@ for r in keep:
     body = html.escape(r["text"].strip()).replace("\n", "<br>")
     cards.append(f'      <li class="cw-rv"><div class="cw-rv__top"><span class="cw-rv__star" aria-label="별점 5점">★★★★★</span><span class="cw-rv__date">{y}.{m}</span></div>\n'
                  f'        <p class="cw-rv__txt">{body}</p>\n'
-                 f'        <p class="cw-rv__who">{html.escape(mask(r["nick"]))} 님 · {r["src"]} 후기</p></li>')
+                 f'        <p class="cw-rv__who">{html.escape(mask(r["nick"]))} 님</p></li>')
 s = W.read_text(encoding="utf-8")
 s = re.sub(r'(<ul class="cw-rvs"[^>]*>\n).*?(\n    </ul>)', lambda m: m.group(1) + "\n".join(cards) + m.group(2), s, flags=re.S)
 W.write_text(s, encoding="utf-8")
