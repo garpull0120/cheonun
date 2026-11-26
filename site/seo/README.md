@@ -7,7 +7,7 @@
 ```html
 <style>
 /* PC 상단 */
-.inline_widget.logo img.normal_logo{height:46px!important;width:auto!important;max-width:none!important}
+.inline_widget.logo img.normal_logo{height:66px!important;width:auto!important;max-width:none!important}
 .viewport-nav.desktop > li > a{padding-left:9px!important;padding-right:9px!important}
 .viewport-nav.desktop > li:has(> a[href="/home"]){display:none!important}
 /* 전후 갤러리 제목과 '시공 사례 더 보기' 글자 높이 맞춤 */
